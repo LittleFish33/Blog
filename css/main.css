@@ -1672,7 +1672,7 @@ pre .javascript .function {
   border-bottom: 1px solid #0593d3;
 }
 .post-body p a:hover {
-  color: #1e90ff;
+  color: #ffa500;
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
@@ -1840,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #952858;
+  background: #3bb3b9;
 }
 .links-of-blogroll {
   font-size: 13px;
