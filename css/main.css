@@ -1669,12 +1669,12 @@ pre .javascript .function {
 }
 .post-body p a {
   border-bottom: none;
-  border-bottom: 1px solid #0593d3;
+  border-bottom: 1px solid #ffa500;
 }
 .post-body p a:hover {
   color: #ffa500;
   border-bottom: none;
-  border-bottom: 1px solid #fc6423;
+  border-bottom: 1px solid #ffa500;
 }
 .sidebar {
   position: fixed;
@@ -1840,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3bb3b9;
+  background: #ffd9ff;
 }
 .links-of-blogroll {
   font-size: 13px;
