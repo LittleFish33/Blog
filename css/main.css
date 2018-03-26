@@ -1669,12 +1669,10 @@ pre .javascript .function {
 }
 .post-body p a {
   border-bottom: none;
-  border-bottom: 1px solid #ffa500;
+  color: #ffa500;
 }
 .post-body p a:hover {
-  color: #ffa500;
-  border-bottom: none;
-  border-bottom: 1px solid #ffa500;
+  color: #0593d3;
 }
 .sidebar {
   position: fixed;
@@ -1840,7 +1838,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9aa788;
+  background: #ff21ff;
 }
 .links-of-blogroll {
   font-size: 13px;
