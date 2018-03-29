@@ -1673,6 +1673,7 @@ pre .javascript .function {
 }
 .post-body p a:hover {
   color: #0593d3;
+  border-bottom: none;
 }
 .sidebar {
   position: fixed;
@@ -1838,7 +1839,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff21ff;
+  background: #ff2812;
 }
 .links-of-blogroll {
   font-size: 13px;
