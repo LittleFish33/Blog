@@ -125,22 +125,23 @@
 
 
 
-<meta name="description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
+<meta name="description" content="简要功能：当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果： 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控">
 <meta name="keywords" content="UWP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
 <meta property="og:url" content="http://littlefish33.cn/2018/04/10/AdpativeUI/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
-<meta property="og:description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
+<meta property="og:description" content="简要功能：当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果： 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://littlefish33.cn/img/uwp/Wide.png">
-<meta property="og:image" content="http://littlefish33.cn/img/uwp/Narrow.png">
-<meta property="og:image" content="http://littlefish33.cn/img/uwp/GridDefinition.png">
-<meta property="og:updated_time" content="2018-04-09T18:36:01.869Z">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/Wide.png">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/Narrow.png">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/GridDefinition.png">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
+<meta property="og:updated_time" content="2018-04-09T19:03:42.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
-<meta name="twitter:description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
-<meta name="twitter:image" content="http://littlefish33.cn/img/uwp/Wide.png">
+<meta name="twitter:description" content="简要功能：当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果： 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控">
+<meta name="twitter:image" content="http://littlefish33.cn/image/uwp/Wide.png">
 
 
 
@@ -324,7 +325,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T02:36:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T03:03:42+08:00">
                 2018-04-10
               </time>
             
@@ -362,19 +363,20 @@
       
 
       
-        <h4 id="一、简要功能："><a href="#一、简要功能：" class="headerlink" title="一、简要功能："></a>一、简要功能：</h4><ul>
+        <h4 id="简要功能："><a href="#简要功能：" class="headerlink" title="简要功能："></a>简要功能：</h4><p>当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：</p>
+<ul>
 <li>当窗口大小大于600时，同时并排显示两张图片</li>
 <li>当窗口大小小于600时，只显示一张图片</li>
 </ul>
-<h4 id="二、实现效果："><a href="#二、实现效果：" class="headerlink" title="二、实现效果："></a>二、实现效果：</h4><ol>
+<h4 id="实现效果："><a href="#实现效果：" class="headerlink" title="实现效果："></a>实现效果：</h4><ol>
 <li>宽屏状态下：</li>
 </ol>
-<p><img src="/img/uwp/Wide.png" alt=""></p>
+<p><img src="/image/uwp/Wide.png" alt=""></p>
 <ol>
 <li>窄屏状态下：</li>
 </ol>
-<p><img src="/img/uwp/Narrow.png" alt=""></p>
-<h4 id="三、实现过程"><a href="#三、实现过程" class="headerlink" title="三、实现过程"></a>三、实现过程</h4><p><strong>（1）在MainPage.xml中创建需要的控件</strong></p>
+<p><img src="/image/uwp/Narrow.png" alt=""></p>
+<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><p><strong>（1）在MainPage.xml中创建需要的控件</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!-- 创建了两个Image控件，放在Grid的第一列和第二列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> <span class="attr">x:Name</span>=<span class="string">"RightColumn"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">Source</span>=<span class="string">"Assets/left.jpg"</span> &gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Source</span>=<span class="string">"Assets/right.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>补充：</strong>关于&lt;Grid.ColumnDefinitions&gt;和&lt;Grid.RowDefinitions&gt;</p>
@@ -390,13 +392,17 @@
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"20"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"30"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>效果截图：</p>
-<p><img src="/img/uwp/GridDefinition.png" alt=""></p>
+<p><img src="/image/uwp/GridDefinition.png" alt=""></p>
 <hr>
 <p><strong>(2) 使用VisualStateManager</strong></p>
 <p>在你要添加自适应的Grid添加下面这段代码，这里主要是设置了不同的VisualState，直译就是可视状态，不同的可视状态可以在Setter中设置自己想要的值</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">VisualStateGroup</span> <span class="attr">x:Name</span>=<span class="string">"LayoutVisualStates"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里设置了两个VisualState：WideLayout和NarrowLayout,x:Name是你自己取得名字 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"WideLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">				这里实际上可以包括多个setter，Target为对应控件的属性，Value为你想要设置的属性值 </span></span><br><span class="line"><span class="comment">				当处于WideLayout状态下时，RightColumn（对应是哪个控件见上面）的宽度被设置为*</span></span><br><span class="line"><span class="comment">			   --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"NarrowLayout"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 这里也是同样的道理 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">VisualStateGroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>（3）在构造函数上添加函数监听窗口尺寸变化</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public MainPage()</span><br><span class="line">&#123;</span><br><span class="line">    this.InitializeComponent();</span><br><span class="line">    /*</span><br><span class="line">    * C#事件订阅</span><br><span class="line">    * Lambda表达式，s和e为传入参数</span><br><span class="line">    */</span><br><span class="line">    this.SizeChanged += (s, e) =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        //首先，state默认设置为WideLayout（WideLayout是你在xmal里设置的名字）</span><br><span class="line">        var state = &quot;WideLayout&quot;;</span><br><span class="line">        if (e.NewSize.Width &gt; 000 &amp;&amp; e.NewSize.Width &lt; 600)</span><br><span class="line">        &#123;</span><br><span class="line">            //如果界面小于600，则将state设置为NarrowLayout</span><br><span class="line">            state = &quot;NarrowLayout&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        //这里将变换State</span><br><span class="line">        VisualStateManager.GoToState(this, state, true);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>整个自适应界面的实现过程大致就是这样了，其实这其中最重要的部分就是第二部分，VisualStateManager中Setter的设置，除了文中提到的Width设置，你还可以根据自己的需要设置不同的值，反正可以在Xmal文件中设置的控件的属性值都利用Setter设置</p>
+<h4 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h4><p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
+<p><img src="/image/uwp/x64.png" alt=""></p>
+<p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/AdaptiveUISample" target="_blank" rel="noopener">AdaptiveUISample</a></p>
 <p>友链：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events" target="_blank" rel="noopener">C# 事件订阅</a></p>
 
       
@@ -424,22 +430,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/23/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -518,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -531,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -580,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、简要功能："><span class="nav-number">1.</span> <span class="nav-text">一、简要功能：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、实现效果："><span class="nav-number">2.</span> <span class="nav-text">二、实现效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、实现过程"><span class="nav-number">3.</span> <span class="nav-text">三、实现过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要功能："><span class="nav-number">1.</span> <span class="nav-text">简要功能：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现效果："><span class="nav-number">2.</span> <span class="nav-text">实现效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FYI"><span class="nav-number">5.</span> <span class="nav-text">FYI</span></a></li></ol></div>
             
 
           </div>
@@ -611,7 +601,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共946字</span>
+  <span class="post-count">博客全站共1.1k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
