@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/batman_new_128px_1168515_easyicon.net?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/batman_new_48px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/batman_new_32px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UWP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
+<meta name="keywords" content="UWP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
+<meta property="og:url" content="http://littlefish33.cn/2018/04/10/AdpativeUI/index.html">
+<meta property="og:site_name" content="LittleFish&#39;s Blog">
+<meta property="og:description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://littlefish33.cn/img/uwp/Wide.png">
+<meta property="og:image" content="http://littlefish33.cn/img/uwp/Narrow.png">
+<meta property="og:image" content="http://littlefish33.cn/img/uwp/GridDefinition.png">
+<meta property="og:updated_time" content="2018-04-09T18:36:01.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
+<meta name="twitter:description" content="一、简要功能： 当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  二、实现效果： 宽屏状态下：    窄屏状态下：   三、实现过程（1）在MainPage.xml中创建需要的控件 123456789&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource ApplicationPageBackgroundThemeBrush&amp;#125">
+<meta name="twitter:image" content="http://littlefish33.cn/img/uwp/Wide.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://littlefish33.cn/2018/04/10/AdpativeUI/"/>
+
+
+
+
+
+  <title>现代操作系统应用开发：UWP——自适应界面Adaptive UI(一) | LittleFish's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     
+    <a href="https://github.com/LittleFish33"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LittleFish's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/2018/04/10/AdpativeUI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LittleFish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LittleFish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T02:36:01+08:00">
+                2018-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、简要功能："><a href="#一、简要功能：" class="headerlink" title="一、简要功能："></a>一、简要功能：</h4><ul>
+<li>当窗口大小大于600时，同时并排显示两张图片</li>
+<li>当窗口大小小于600时，只显示一张图片</li>
+</ul>
+<h4 id="二、实现效果："><a href="#二、实现效果：" class="headerlink" title="二、实现效果："></a>二、实现效果：</h4><ol>
+<li>宽屏状态下：</li>
+</ol>
+<p><img src="/img/uwp/Wide.png" alt=""></p>
+<ol>
+<li>窄屏状态下：</li>
+</ol>
+<p><img src="/img/uwp/Narrow.png" alt=""></p>
+<h4 id="三、实现过程"><a href="#三、实现过程" class="headerlink" title="三、实现过程"></a>三、实现过程</h4><p><strong>（1）在MainPage.xml中创建需要的控件</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!-- 创建了两个Image控件，放在Grid的第一列和第二列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> <span class="attr">x:Name</span>=<span class="string">"RightColumn"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">Source</span>=<span class="string">"Assets/left.jpg"</span> &gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Source</span>=<span class="string">"Assets/right.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>补充：</strong>关于&lt;Grid.ColumnDefinitions&gt;和&lt;Grid.RowDefinitions&gt;</p>
+<ul>
+<li>Grid.ColumnDefinitions 和 Grid.RowDefinition 会将整个Grid控件划分行和分列，如上边的例子将会把Grid分为两列</li>
+<li>那么ColumnDefinitions里的Width属性表示什么呢？Width表示该列的宽度，有三种取值：<ul>
+<li>Auto：该控件有多宽，呈现出来就有多宽，比如说如果该列的内容是一张图片，那么按原图片的宽度显示出来</li>
+<li>具体数值，如400：即直接指定控件的宽度（不推荐直接指定控件的宽度，因为UWP应用是跨平台的，如果指定宽度的话，在别的平台显示出来）</li>
+<li>“*“或一个整数/小数紧跟着一个星号，表示的是整个Grid控件的宽度减去属性为Auto和具体数值的控件的宽度，剩下的宽度按比例分给这些带星号的控件，数值越大分的越多</li>
+</ul>
+</li>
+<li>下面是一个具体的例子：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"20"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"30"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果截图：</p>
+<p><img src="/img/uwp/GridDefinition.png" alt=""></p>
+<hr>
+<p><strong>(2) 使用VisualStateManager</strong></p>
+<p>在你要添加自适应的Grid添加下面这段代码，这里主要是设置了不同的VisualState，直译就是可视状态，不同的可视状态可以在Setter中设置自己想要的值</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">VisualStateGroup</span> <span class="attr">x:Name</span>=<span class="string">"LayoutVisualStates"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里设置了两个VisualState：WideLayout和NarrowLayout,x:Name是你自己取得名字 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"WideLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">				这里实际上可以包括多个setter，Target为对应控件的属性，Value为你想要设置的属性值 </span></span><br><span class="line"><span class="comment">				当处于WideLayout状态下时，RightColumn（对应是哪个控件见上面）的宽度被设置为*</span></span><br><span class="line"><span class="comment">			   --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"NarrowLayout"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 这里也是同样的道理 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">VisualStateGroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>（3）在构造函数上添加函数监听窗口尺寸变化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public MainPage()</span><br><span class="line">&#123;</span><br><span class="line">    this.InitializeComponent();</span><br><span class="line">    /*</span><br><span class="line">    * C#事件订阅</span><br><span class="line">    * Lambda表达式，s和e为传入参数</span><br><span class="line">    */</span><br><span class="line">    this.SizeChanged += (s, e) =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        //首先，state默认设置为WideLayout（WideLayout是你在xmal里设置的名字）</span><br><span class="line">        var state = &quot;WideLayout&quot;;</span><br><span class="line">        if (e.NewSize.Width &gt; 000 &amp;&amp; e.NewSize.Width &lt; 600)</span><br><span class="line">        &#123;</span><br><span class="line">            //如果界面小于600，则将state设置为NarrowLayout</span><br><span class="line">            state = &quot;NarrowLayout&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        //这里将变换State</span><br><span class="line">        VisualStateManager.GoToState(this, state, true);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>友链：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events" target="_blank" rel="noopener">C# 事件订阅</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UWP/" rel="tag"># UWP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE0MC8xMTY3NQ"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LittleFish</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LittleFish33" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:3478628675@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、简要功能："><span class="nav-number">1.</span> <span class="nav-text">一、简要功能：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、实现效果："><span class="nav-number">2.</span> <span class="nav-text">二、实现效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、实现过程"><span class="nav-number">3.</span> <span class="nav-text">三、实现过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LittleFish</span>
+
+  
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共946字</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
