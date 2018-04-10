@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/batman_new_128px_1168515_easyicon.net?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/batman_new_48px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/batman_new_32px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UWP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="功能简介在数据绑定的时候，我们有时候会遇到不能直接绑定的情况，如Checkbox的IsChecked属性不能直接绑定一个布尔值，这时候就需要添加转换器完成数据绑定 示例项目将在上一篇博客DataBinding（一）提供的代码上进行修改，添加一个转化器，使Checkbox的IsChecked属性通过转化器绑定一个布尔值上 实现效果 实现过程(1）添加一个类CheckBoxConverter该类将继承">
+<meta name="keywords" content="UWP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器">
+<meta property="og:url" content="http://littlefish33.cn/uwp/DataBindingWithConverter/index.html">
+<meta property="og:site_name" content="LittleFish&#39;s Blog">
+<meta property="og:description" content="功能简介在数据绑定的时候，我们有时候会遇到不能直接绑定的情况，如Checkbox的IsChecked属性不能直接绑定一个布尔值，这时候就需要添加转换器完成数据绑定 示例项目将在上一篇博客DataBinding（一）提供的代码上进行修改，添加一个转化器，使Checkbox的IsChecked属性通过转化器绑定一个布尔值上 实现效果 实现过程(1）添加一个类CheckBoxConverter该类将继承">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/DataBindingWithConverter.png">
+<meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
+<meta property="og:updated_time" content="2018-04-10T16:45:59.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器">
+<meta name="twitter:description" content="功能简介在数据绑定的时候，我们有时候会遇到不能直接绑定的情况，如Checkbox的IsChecked属性不能直接绑定一个布尔值，这时候就需要添加转换器完成数据绑定 示例项目将在上一篇博客DataBinding（一）提供的代码上进行修改，添加一个转化器，使Checkbox的IsChecked属性通过转化器绑定一个布尔值上 实现效果 实现过程(1）添加一个类CheckBoxConverter该类将继承">
+<meta name="twitter:image" content="http://littlefish33.cn/image/uwp/DataBindingWithConverter.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://littlefish33.cn/uwp/DataBindingWithConverter/"/>
+
+
+
+
+
+  <title>现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器 | LittleFish's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     
+    <a href="https://github.com/LittleFish33"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LittleFish's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/uwp/DataBindingWithConverter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LittleFish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LittleFish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T22:45:00+08:00">
+                2018-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learnNote/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learnNote/MOSAD/" itemprop="url" rel="index">
+                    <span itemprop="name">现代操作系统应用开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>在数据绑定的时候，我们有时候会遇到不能直接绑定的情况，如Checkbox的IsChecked属性不能直接绑定一个布尔值，这时候就需要添加转换器完成数据绑定</p>
+<p>示例项目将在上一篇博客<a href="http://littlefish33.cn/uwp/SimpleDataBinding/">DataBinding（一）</a>提供的代码上进行修改，添加一个转化器，使Checkbox的IsChecked属性通过转化器绑定一个布尔值上</p>
+<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p><img src="/image/uwp/DataBindingWithConverter.png" alt=""></p>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）添加一个类CheckBoxConverter"><a href="#1）添加一个类CheckBoxConverter" class="headerlink" title="(1）添加一个类CheckBoxConverter"></a>(1）添加一个类CheckBoxConverter</h4><p>该类将继承接口IValueConverter，同时实现接口的两个函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* value为需要转化的值</span></span><br><span class="line"><span class="comment">* targetType为要转化成的值的类型</span></span><br><span class="line"><span class="comment">* parameter为转化时传递的参数，</span></span><br><span class="line"><span class="comment">* 根据value的值，返回一个targetType类型的值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> object <span class="title">Convert</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span>&#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> object <span class="title">ConvertBack</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例代码中的CheckBoxConverter的功能是将布尔值转化为Checkbox的IsChecked属性值，具体代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CheckBoxConverter.cs</span></span><br><span class="line"><span class="keyword">namespace</span> DataBindingWithConverter</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 转化器，将布尔值转化为Checkbox的IsChecked属性(System.Nullable`1[System.Boolean])</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckBoxConverter</span> :</span> IValueConverter</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * value为Item的Ischecked 属性，布尔值</span></span><br><span class="line"><span class="comment">        * targetType为Checkbox的Ischecked 属性的类型</span></span><br><span class="line"><span class="comment">        * parameter为转化时传递的参数，这里为空</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> object <span class="title">Convert</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * bool? 表示isChecked可以取null</span></span><br><span class="line"><span class="comment">             * value as bool? 将value转化为布尔值然后返回，如果不能转化，则返回null</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">bool</span>? isChecked = value as <span class="keyword">bool</span>?;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * 实际上这里返回的并不是targetType类型的值，而是布尔值</span></span><br><span class="line"><span class="comment">             * 但是在代码中返回值为Object，布尔值将被强制转化</span></span><br><span class="line"><span class="comment">             * 注意：在类型不能强制转化的情况下，应该根据targetType的类型返回返回需要的值</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span> (isChecked == null || isChecked == <span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 因为是单向绑定，所有并不需要编写ConvertBack函数</span></span><br><span class="line"><span class="comment">         * 如果使用了双向绑定，可以参考上面函数的写法添加ConvertBack函数的代码</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> object <span class="title">ConvertBack</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NotImplementedException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的地方：</p>
+<ul>
+<li>继承接口IValueConverter</li>
+<li>根据value和targetType定义Convert函数</li>
+</ul>
+<h4 id="2-新建类Item-cs"><a href="#2-新建类Item-cs" class="headerlink" title="(2) 新建类Item.cs"></a>(2) 新建类Item.cs</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Item.cs</span></span><br><span class="line"><span class="keyword">namespace</span> DataBindingWithConverter</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Item是我们自定义的一个类型，包含三个属性，对应三个控件的属性</span></span><br><span class="line"><span class="comment">     * Content --&gt; 文本框的内容</span></span><br><span class="line"><span class="comment">     * Source --&gt; Image的Source</span></span><br><span class="line"><span class="comment">     * Ischecked --&gt; Checkbox的checked</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> _content;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> _source;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">bool</span> _ischecked;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> Content &#123; get =&gt; _content; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> Source &#123; get =&gt; _source; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">bool</span> Ischecked &#123; get =&gt; _ischecked; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Item</span><span class="params">(<span class="built_in">string</span> content, <span class="built_in">string</span> source,<span class="keyword">bool</span> ischecked)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>._content = content;</span><br><span class="line">            <span class="keyword">this</span>._source = source;</span><br><span class="line">            <span class="keyword">this</span>._ischecked = ischecked;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-在MainPage-xaml-cs中添加代码"><a href="#3-在MainPage-xaml-cs中添加代码" class="headerlink" title="(3) 在MainPage.xaml.cs中添加代码"></a>(3) 在MainPage.xaml.cs中添加代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> DataBindingWithConverter</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> sealed partial <span class="class"><span class="keyword">class</span> <span class="title">MainPage</span> :</span> Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> ObservableCollection&lt;Item&gt; Array = <span class="keyword">new</span> ObservableCollection&lt;Item&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * 往集合中添加对象</span></span><br><span class="line"><span class="comment">             * Array[2]和Array[3]设置为unchecked，其他设置为checked</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            Array.Add(<span class="keyword">new</span> Item(<span class="string">"This is the head line, with the pictur 0.png(checked)"</span>, <span class="string">"Assets/0.png"</span>,<span class="literal">true</span>));</span><br><span class="line">            Array.Add(<span class="keyword">new</span> Item(<span class="string">"This is the first line, with the pictur 1.png(checked)"</span>, <span class="string">"Assets/1.png"</span>,<span class="literal">true</span>));</span><br><span class="line">            Array.Add(<span class="keyword">new</span> Item(<span class="string">"This is the second line, with the pictur 2.png(unchecked)"</span>, <span class="string">"Assets/2.png"</span>,<span class="literal">false</span>));</span><br><span class="line">            Array.Add(<span class="keyword">new</span> Item(<span class="string">"This is the third line, with the pictur 3.png(unchecked)"</span>, <span class="string">"Assets/3.png"</span>,<span class="literal">false</span>));</span><br><span class="line">            Array.Add(<span class="keyword">new</span> Item(<span class="string">"This is the fourth line, with the pictur 4.png(checked)"</span>, <span class="string">"Assets/4.png"</span>,<span class="literal">true</span>));</span><br><span class="line">            <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4）在MainPage-xaml中添加代码"><a href="#4）在MainPage-xaml中添加代码" class="headerlink" title="(4）在MainPage.xaml中添加代码"></a>(4）在MainPage.xaml中添加代码</h4><p>首先，需要在Grid的上面添加代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	将CheckboxConverter类添加到资源，因为CheckboxConverter和MainPage的命名空间一样，所有使用local</span></span><br><span class="line"><span class="comment">	x:key可以设置为任何你喜欢的值，下面将通过这个值指向CheckboxConverter</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Page.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">local:CheckBoxConverter</span>  <span class="attr">x:Key</span>=<span class="string">"ConvertCheck"</span>&gt;</span><span class="tag">&lt;/<span class="name">local:CheckBoxConverter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Page.Resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 你创建的控件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后在Grid中添加ListView，代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ListView</span> <span class="attr">Margin</span>=<span class="string">"20,20,50,20"</span> <span class="attr">ItemsSource</span>=<span class="string">"&#123;x:Bind Array&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ListView.ItemTemplate</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">DataTemplate</span> <span class="attr">x:DataType</span>=<span class="string">"local:Item"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RelativePanel</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--  </span></span><br><span class="line"><span class="comment">            x:Bind Ischecked绑定到Item的Ischecked属性（布尔类型），因为二者不能直接转化，所以需要指定转化器</span></span><br><span class="line"><span class="comment">            ConvertCheck为最上面的Page.Resources对应的x:Key</span></span><br><span class="line"><span class="comment">            Mode=OneWay表示是单向绑定，关于双向绑定的内容可以参考另一篇博客:http://littlefish33.cn/uwp/TwoWayDataBinding/</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">CheckBox</span>  <span class="attr">IsChecked</span>=<span class="string">"&#123;x:Bind Ischecked,Converter=&#123;StaticResource ConvertCheck&#125;,Mode=OneWay&#125;"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Left"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Top"</span> <span class="attr">Margin</span>=<span class="string">"10,10,0,0"</span>&gt;</span><span class="tag">&lt;/<span class="name">CheckBox</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Width</span>=<span class="string">"90"</span> <span class="attr">x:Name</span>=<span class="string">"Space"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Image</span>  <span class="attr">Source</span>=<span class="string">"&#123;x:Bind Source&#125;"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Left"</span> <span class="attr">Height</span>=<span class="string">"40"</span> <span class="attr">Margin</span>=<span class="string">"50,10,0,0"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Top"</span> <span class="attr">Width</span>=<span class="string">"40"</span>&gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"&#123;x:Bind Content&#125;"</span>  <span class="attr">RelativePanel.RightOf</span>=<span class="string">"Space"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Top"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Left"</span> <span class="attr">FontSize</span>=<span class="string">"20"</span> <span class="attr">Margin</span>=<span class="string">"10,12,0,0"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBlock</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RelativePanel</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">DataTemplate</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ListView.ItemTemplate</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的地方：</p>
+<ul>
+<li>一开始资源文件的声明</li>
+</ul>
+<ul>
+<li>CheckBox的IsChecked属性的绑定</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>转化器 + 数据绑定的大致过程就是：</p>
+<ol>
+<li>根据需要转化的值和目标类型编写转化器</li>
+<li>在xaml.cs中声明资源文件</li>
+<li>绑定属性是添加转化器</li>
+</ol>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>可能你和我一样不知道Convert和ConvertBack的目标类型是什么，总是搞混，这时候其实我们可以通过Debug.WriteLine()方法打印出目标类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Diagnostics;</span><br><span class="line">Debug.WriteLine(targetType);</span><br></pre></td></tr></table></figure>
+<h3 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h3><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/BackRequestedSample" target="_blank" rel="noopener">DataBindingWithConverter</a></p>
+<p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
+<p><img src="/image/uwp/x64.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UWP/" rel="tag"># UWP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/uwp/BackRequested/" rel="next" title="现代操作系统应用开发：UWP——标题栏后退按钮的实现和页面缓存">
+                <i class="fa fa-chevron-left"></i> 现代操作系统应用开发：UWP——标题栏后退按钮的实现和页面缓存
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uwp/SimpleDataBinding/" rel="prev" title="现代操作系统应用开发：UWP——DataBinding（一）：简单数据绑定">
+                现代操作系统应用开发：UWP——DataBinding（一）：简单数据绑定 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE0MC8xMTY3NQ"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LittleFish</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LittleFish33" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:3478628675@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）添加一个类CheckBoxConverter"><span class="nav-number">3.1.</span> <span class="nav-text">(1）添加一个类CheckBoxConverter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-新建类Item-cs"><span class="nav-number">3.2.</span> <span class="nav-text">(2) 新建类Item.cs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在MainPage-xaml-cs中添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">(3) 在MainPage.xaml.cs中添加代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）在MainPage-xaml中添加代码"><span class="nav-number">3.4.</span> <span class="nav-text">(4）在MainPage.xaml中添加代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">5.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FYI"><span class="nav-number">6.</span> <span class="nav-text">FYI</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LittleFish</span>
+
+  
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共5.6k字</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
