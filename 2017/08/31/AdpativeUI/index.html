@@ -129,7 +129,7 @@
 <meta name="keywords" content="UWP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
-<meta property="og:url" content="http://littlefish33.cn/2018/04/10/AdpativeUI/index.html">
+<meta property="og:url" content="http://littlefish33.cn/2017/08/31/AdpativeUI/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
 <meta property="og:description" content="简要功能：当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果： 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控">
 <meta property="og:locale" content="zh-Hans">
@@ -137,7 +137,7 @@
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/Narrow.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/GridDefinition.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-04-09T19:22:24.469Z">
+<meta property="og:updated_time" content="2018-04-10T04:38:31.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
 <meta name="twitter:description" content="简要功能：当你百度UWP自适应怎么实现的时候，我就假设你已经知道了UWP自适应界面是什么了，这里就不浪费口水介绍了，所以下面直接说一下看完这篇博客后可以实现的功能（说的我真的能会一样 ( ‵▽′ )ψ）：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果： 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控">
@@ -171,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="http://littlefish33.cn/2018/04/10/AdpativeUI/"/>
+  <link rel="canonical" href="http://littlefish33.cn/2017/08/31/AdpativeUI/"/>
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/2018/04/10/AdpativeUI/">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/2017/08/31/AdpativeUI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LittleFish">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T03:22:24+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T23:53:24+08:00">
+                2017-08-31
               </time>
             
 
@@ -335,6 +335,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -384,7 +406,7 @@
 <li>Grid.ColumnDefinitions 和 Grid.RowDefinition 会将整个Grid控件划分行和分列，如上边的例子将会把Grid分为两列</li>
 <li>那么ColumnDefinitions里的Width属性表示什么呢？Width表示该列的宽度，有三种取值：<ul>
 <li>Auto：该控件有多宽，呈现出来就有多宽，比如说如果该列的内容是一张图片，那么按原图片的宽度显示出来</li>
-<li>具体数值，如400：即直接指定控件的宽度（不推荐直接指定控件的宽度，因为UWP应用是跨平台的，如果指定宽度的话，在别的平台显示出来）</li>
+<li>具体数值，如400：即直接指定控件的宽度（不推荐直接指定控件的宽度，因为UWP应用是跨平台的，如果指定宽度的话，在一台电脑里也许这个宽度看起来挺好的，换成windowPhone就。。。）</li>
 <li>“*“或一个整数/小数紧跟着一个星号，表示的是整个Grid控件的宽度减去属性为Auto和具体数值的控件的宽度，剩下的宽度按比例分给这些带星号的控件，数值越大分的越多</li>
 </ul>
 </li>
@@ -514,6 +536,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
