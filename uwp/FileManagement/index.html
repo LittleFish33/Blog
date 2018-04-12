@@ -125,23 +125,23 @@
 
 
 
-<meta name="description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  关于第一种方法可以参考第一篇博客 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹">
+<meta name="description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问；这里的KnowFolder指的是下面图片中的文件夹：  关于这种方法可以参考第一篇博客，本片博客将主要介绍第二中方法 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限；当需要访">
 <meta name="keywords" content="UWP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现代操作系统应用开发：UWP——文件管理（二）：FileManagement">
 <meta property="og:url" content="http://littlefish33.cn/uwp/FileManagement/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
-<meta property="og:description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  关于第一种方法可以参考第一篇博客 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹">
+<meta property="og:description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问；这里的KnowFolder指的是下面图片中的文件夹：  关于这种方法可以参考第一篇博客，本片博客将主要介绍第二中方法 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限；当需要访">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/KnownFolder.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/FMOpen.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/FMPick.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/FMShow.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-04-11T17:23:00.657Z">
+<meta property="og:updated_time" content="2018-04-12T12:40:01.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：UWP——文件管理（二）：FileManagement">
-<meta name="twitter:description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  关于第一种方法可以参考第一篇博客 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹">
+<meta name="twitter:description" content="背景简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问；这里的KnowFolder指的是下面图片中的文件夹：  关于这种方法可以参考第一篇博客，本片博客将主要介绍第二中方法 第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限；当需要访">
 <meta name="twitter:image" content="http://littlefish33.cn/image/uwp/KnownFolder.png">
 
 
@@ -408,9 +408,9 @@
 
       
         <h3 id="背景简介"><a href="#背景简介" class="headerlink" title="背景简介"></a>背景简介</h3><p>我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法：</p>
-<p>第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：</p>
+<p>第一，电脑上的KnownFolder允许UWP程序直接访问；这里的KnowFolder指的是下面图片中的文件夹：</p>
 <p><img src="/image/uwp/KnownFolder.png" alt=""></p>
-<p>关于第一种方法可以参考<a href="http://littlefish33.cn/uwp/KnownFolder">第一篇博客</a></p>
+<p>关于这种方法可以参考<a href="http://littlefish33.cn/uwp/KnownFolder">第一篇博客</a>，本片博客将主要介绍第二中方法</p>
 <p>第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限；当需要访问这些文件夹是，需要在添加ms-appdata:///前缀，如</p>
 <table>
 <thead>
