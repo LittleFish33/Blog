@@ -135,7 +135,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/mediaElement.gif">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-05-02T12:24:35.225Z">
+<meta property="og:updated_time" content="2018-05-02T12:27:58.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：MediaElement播放进度和Slider滑块的绑定">
 <meta name="twitter:description" content="功能简介使用UWP提供的MediaElement控件制作一个音乐播放器，不使用MediaElement内置的传输控件，使用我们自己创建的控件Slider，将Slider滑块的位置和MediaElement的播放进度绑定，顺带一提，博客示例的音乐播放器的封面在音乐播放的时候会旋转。 注意：这里使用了转换器的知识，未使用过转换器的请看——&amp;gt;传送门 实现效果 播放音乐   实现过程(1）创建转换器">
@@ -410,7 +410,7 @@
 <li>播放音乐</li>
 </ul>
 <p><img src="/image/uwp/mediaElement.gif" alt=""></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）创建转换器类"><a href="#1）创建转换器类" class="headerlink" title="(1）创建转换器类"></a>(1）创建转换器类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//ProgressConverter.cs</span><br><span class="line">namespace MediaElementAndSlider</span><br><span class="line">&#123;</span><br><span class="line">    class ProgressConverter : IValueConverter</span><br><span class="line">    &#123;</span><br><span class="line">        public object Convert(object value, Type targetType, object parameter, string language)</span><br><span class="line">        &#123;</span><br><span class="line">            return ((TimeSpan)value).TotalSeconds;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public object ConvertBack(object value, Type targetType, object parameter, string language)</span><br><span class="line">        &#123;</span><br><span class="line">            return TimeSpan.FromSeconds((double)value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）创建转换器类"><a href="#1）创建转换器类" class="headerlink" title="(1）创建转换器类"></a>(1）创建转换器类</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ProgressConverter.cs</span></span><br><span class="line"><span class="keyword">namespace</span> MediaElementAndSlider</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ProgressConverter</span> :</span> IValueConverter</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> object <span class="title">Convert</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> ((TimeSpan)value).TotalSeconds;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> object <span class="title">ConvertBack</span><span class="params">(object value, Type targetType, object parameter, <span class="built_in">string</span> language)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> TimeSpan.FromSeconds((<span class="keyword">double</span>)value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>需要注意的地方：</p>
 <ul>
 <li><code>Convert</code> 函数的value参数的类型为TimeSpan，为保存MediaElement的播放进度的一个结构体，调用<code>TotalSeconds</code> 函数将返回总共播放的秒数</li>
@@ -477,6 +477,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uwp/JsonParsing/" rel="prev" title="现代操作系统应用开发：UWP——（C#）Newtonsoft.Json：一种方便的解析Json字符串的方法">
+                现代操作系统应用开发：UWP——（C#）Newtonsoft.Json：一种方便的解析Json字符串的方法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -558,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -660,7 +664,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.1k字</span>
+  <span class="post-count">博客全站共16.4k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
