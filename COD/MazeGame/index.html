@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/batman_new_128px_1168515_easyicon.net?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/batman_new_48px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/batman_new_32px_1168515_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="写着玩," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="功能简介与实现效果一个用X86实现的迷宫游戏，首先，在进入游戏首页之后，玩家可以根据自己的喜好选择自己想要玩的难度，本游戏总共有是三个难度，Easy，Normal，Hard，分别对应三个不同难度的迷宫；  在选择了迷宫难度之后，将会刷新出一个对应难度的迷宫，在这个游戏中，玩家扮演的是一个想要逃离迷宫的小人，这个人用一个笑脸表示，只有当玩家控制角色到达迷宫的出口，即迷宫中标有 A 的位置时候，才能获">
+<meta name="keywords" content="写着玩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理与接口设计——期中课程设计：使用X86编程语言实现的迷宫游戏">
+<meta property="og:url" content="http://littlefish33.cn/COD/MazeGame/index.html">
+<meta property="og:site_name" content="LittleFish&#39;s Blog">
+<meta property="og:description" content="功能简介与实现效果一个用X86实现的迷宫游戏，首先，在进入游戏首页之后，玩家可以根据自己的喜好选择自己想要玩的难度，本游戏总共有是三个难度，Easy，Normal，Hard，分别对应三个不同难度的迷宫；  在选择了迷宫难度之后，将会刷新出一个对应难度的迷宫，在这个游戏中，玩家扮演的是一个想要逃离迷宫的小人，这个人用一个笑脸表示，只有当玩家控制角色到达迷宫的出口，即迷宫中标有 A 的位置时候，才能获">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://littlefish33.cn/image/COD/MazeGame2.png">
+<meta property="og:image" content="http://littlefish33.cn/image/COD/MazeGame3.png">
+<meta property="og:image" content="http://littlefish33.cn/image/COD/MazeGame5.png">
+<meta property="og:image" content="http://littlefish33.cn/image/COD/MazeGame4.png">
+<meta property="og:image" content="http://littlefish33.cn/image/COD/MazeGame1.png">
+<meta property="og:updated_time" content="2018-05-22T05:16:30.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机组成原理与接口设计——期中课程设计：使用X86编程语言实现的迷宫游戏">
+<meta name="twitter:description" content="功能简介与实现效果一个用X86实现的迷宫游戏，首先，在进入游戏首页之后，玩家可以根据自己的喜好选择自己想要玩的难度，本游戏总共有是三个难度，Easy，Normal，Hard，分别对应三个不同难度的迷宫；  在选择了迷宫难度之后，将会刷新出一个对应难度的迷宫，在这个游戏中，玩家扮演的是一个想要逃离迷宫的小人，这个人用一个笑脸表示，只有当玩家控制角色到达迷宫的出口，即迷宫中标有 A 的位置时候，才能获">
+<meta name="twitter:image" content="http://littlefish33.cn/image/COD/MazeGame2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://littlefish33.cn/COD/MazeGame/"/>
+
+
+
+
+
+  <title>计算机组成原理与接口设计——期中课程设计：使用X86编程语言实现的迷宫游戏 | LittleFish's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     
+    <a href="https://github.com/LittleFish33"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LittleFish's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/COD/MazeGame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LittleFish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LittleFish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机组成原理与接口设计——期中课程设计：使用X86编程语言实现的迷宫游戏</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T00:48:00+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learnNote/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learnNote/COD/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机组成原理与接口设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="功能简介与实现效果"><a href="#功能简介与实现效果" class="headerlink" title="功能简介与实现效果"></a>功能简介与实现效果</h3><p>一个用X86实现的迷宫游戏，首先，在进入游戏首页之后，玩家可以根据自己的喜好选择自己想要玩的难度，本游戏总共有是三个难度，Easy，Normal，Hard，分别对应三个不同难度的迷宫；</p>
+<p><img src="/image/COD/MazeGame2.png" alt=""></p>
+<p>在选择了迷宫难度之后，将会刷新出一个对应难度的迷宫，在这个游戏中，玩家扮演的是一个想要逃离迷宫的小人，这个人用一个笑脸表示，只有当玩家控制角色到达迷宫的出口，即迷宫中标有 <code>A</code> 的位置时候，才能获得游戏的胜利；玩家将通过键盘上的<code>W,A,S,D</code> 键对角色进行移动，分别对应向上，左，下，右移动；当碰到障碍物的时候，角色将不能往那个方向移动；</p>
+<p><img src="/image/COD/MazeGame3.png" alt=""></p>
+<p><img src="/image/COD/MazeGame5.png" alt=""></p>
+<p>在成功走出迷宫之后，玩家可以选择进入下一关或者是离开游戏；如果玩家已经走出最难的迷宫，那么玩家也可以选择继续游戏，重新玩一遍游戏；</p>
+<p><img src="/image/COD/MazeGame4.png" alt=""></p>
+<h3 id="程序流程图"><a href="#程序流程图" class="headerlink" title="程序流程图"></a>程序流程图</h3><p><img src="/image/COD/MazeGame1.png" alt=""></p>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="（1）第一步，我们需要在DATA-SEGMENT-中存放一些我们之后要使用的数据"><a href="#（1）第一步，我们需要在DATA-SEGMENT-中存放一些我们之后要使用的数据" class="headerlink" title="（1）第一步，我们需要在DATA SEGMENT 中存放一些我们之后要使用的数据"></a>（1）第一步，我们需要在DATA SEGMENT 中存放一些我们之后要使用的数据</h4><ul>
+<li>首先，是将整个迷宫模型保存在MSG_EASYMAZE（简单难度），MSG_NORMALMAZE（普通难度），MSG_HARDMAZE中（困难难度），分别对应三个难度的迷宫模型（这里限于篇幅值显示了MSG_EASYMAZE，另外两个迷宫是一样的原理，具体内容可以下载最下面的源代码查看）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MSG_EASYMAZE	 DB &quot;---------------------------------------------|&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;   |              |        |     |     |     |&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|  |------------  |---  |  |  |  |  |  |  |  |&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|  |        |           |  |  |     |  |  |  |&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|  |--|  ---|  |--|-----|  |------  |  |--|  |&quot;, 0AH, 0DH  </span><br><span class="line">				DB &quot;|     |        |  |     |--|        |        |&quot;, 0AH, 0DH  </span><br><span class="line">				DB &quot;|---  |  |-----|     |        ------|  ------|&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|        |        |  |  |--|        |     |  |&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|  ------|  ------|  |--|  |  |---  |---  |  |&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|                 |           |     |        A&quot;, 0AH, 0DH</span><br><span class="line">				DB &quot;|--------------------------------------------|$&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后，是一些字符串，这些字符串将在游戏引导界面告诉玩家该如何操作:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NEW_LINE         DB 13,10,&quot;$&quot;</span><br><span class="line"></span><br><span class="line">MSG_WON          DB &quot;You Have Won!!! $&quot;, 0AH, 0DH</span><br><span class="line"></span><br><span class="line">MSG_NEXTLEVEL    DB 13,10,&quot;Go To The Next Level: Enter Y to the Next Level,Input Others to Exit!$&quot;,0AH, 0DH               </span><br><span class="line"></span><br><span class="line">MSG_CONTINUE     DB 13,10,&quot;If Continue: Enter Y to Continue,Input Others to Exit!$&quot;,0AH, 0DH         </span><br><span class="line"></span><br><span class="line">MSG_INSTRUCTION  DB &quot;WELCOME !!! $&quot;, 0AH, 0DH</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MSG_SETLEVEL     DB &quot;Enter the level you want to play(0 for easy,1 for normal,2 for difficulty):  &quot;,0AH, 0DH</span><br><span class="line">DB &quot;Any Invalid Input Will Be Treat As 0: $&quot;,0AH, 0DH</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MSG_CONTROL      DB &quot;You are about to play the game, remember,you can use the w,a,s,d in the keyboard to move&quot;,0AH, 0DH</span><br><span class="line">DB &quot;w for up, a for west, s for down, d for east, enter any key to play the game, have a good time!!!$&quot;,0AH, 0DH</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后是一些我们需要使用的变量：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>玩家当前的x坐标</td>
+</tr>
+<tr>
+<td>y</td>
+<td>玩家当前的y坐标</td>
+</tr>
+<tr>
+<td>NextX</td>
+<td>玩家下一步的x坐标</td>
+</tr>
+<tr>
+<td>NextY</td>
+<td>玩家下一步的y坐标</td>
+</tr>
+<tr>
+<td>position</td>
+<td>临时变量，用于取出某个位置的内容（用于判断是不是为空，如果为空，则可以移动到该位置）</td>
+</tr>
+<tr>
+<td>dirInput</td>
+<td>临时变量，用于保存输入的移动指令,w,s,a,d</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>临时变量，用于保存输入的难度</td>
+</tr>
+<tr>
+<td>player</td>
+<td>表示玩家（打印该变量即打印玩家）</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>输入的指令（如Y表示Yes，用于判断是否继续游戏等函数）</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x                DB 0H ; the x-coordinate of the player</span><br><span class="line">y                DB 0H ; the y-coordinate of the player</span><br><span class="line">NextX            DB 0H ; the next x-coordinate of the player</span><br><span class="line">NextY            DB 0H ; the next y-coordinate of the player </span><br><span class="line">position         DB 0H ; a template variable that we use to contain the character in the position</span><br><span class="line">dirInput         DB 0H ; the direction you input that your player will move                                              </span><br><span class="line"></span><br><span class="line">difficulty       DW 0H                   </span><br><span class="line">player           DB 01H</span><br><span class="line">direction        DB 0H</span><br></pre></td></tr></table></figure>
+<h4 id="（2）之后我们添加进入游戏之前的引导界面代码"><a href="#（2）之后我们添加进入游戏之前的引导界面代码" class="headerlink" title="（2）之后我们添加进入游戏之前的引导界面代码"></a>（2）之后我们添加进入游戏之前的引导界面代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">START:</span><br><span class="line">    MOV AX, DATA</span><br><span class="line">    MOV DS, AX</span><br><span class="line">    MOV ES, AX</span><br><span class="line"></span><br><span class="line">INSTRUCTION:</span><br><span class="line">    CALL CLEAN_SCREEN</span><br><span class="line">    LEA  DX, MSG_INSTRUCTION            ; print the welcome</span><br><span class="line">    CALL SHOW</span><br><span class="line">    LEA DX, NEW_LINE         </span><br><span class="line">    CALL SHOW </span><br><span class="line">    LEA  DX, MSG_CONTROL                ; print how to control the player</span><br><span class="line">    CALL SHOW</span><br><span class="line">    LEA DX, NEW_LINE</span><br><span class="line">    CALL SHOW </span><br><span class="line">    LEA  DX, MSG_SETLEVEL               ; choose the difficulty</span><br><span class="line">    CALL SHOW</span><br><span class="line">    CALL GET_INPUT</span><br><span class="line">    MOV  direction, AL</span><br><span class="line">    CMP  direction,&apos;0&apos;</span><br><span class="line">    JE  GAME_START                      ; easy game</span><br><span class="line">    CMP direction,&apos;1&apos;</span><br><span class="line">    JE GAME_START_NORMAL                ; normal game</span><br><span class="line">    CMP direction,&apos;2&apos;</span><br><span class="line">    JE GAME_START_HART                  ; hard game</span><br><span class="line">    CALL  GAME_START                    ; default : easy game</span><br></pre></td></tr></table></figure>
+<h4 id="（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy-game为例："><a href="#（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy-game为例：" class="headerlink" title="（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy game为例："></a>（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy game为例：</h4><ul>
+<li>首先，是绘制迷宫</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">;start the game       </span><br><span class="line">GAME_START: </span><br><span class="line">    CALL EASYMAZE   ;draw the maze</span><br><span class="line">    CALL SET_STARTPOS ;set the start position of the character</span><br><span class="line">    CALL PRINT_PLAYER</span><br><span class="line">    JMP ChangePos</span><br><span class="line">    </span><br><span class="line">; Draw the easy maze  </span><br><span class="line">EASYMAZE:</span><br><span class="line">    CALL CLEAN_SCREEN                             </span><br><span class="line">    LEA  DX, MSG_EASYMAZE</span><br><span class="line">    CALL SHOW </span><br><span class="line">    RET</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打印出地图之后，我们需要在起始位置：即迷宫的入口打印玩家：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">; Set the begin position of the player</span><br><span class="line">SET_STARTPOS:  </span><br><span class="line">    MOV  NextX, 0H</span><br><span class="line">    MOV  NextY, 1H</span><br><span class="line">    MOV  x, 0H</span><br><span class="line">    MOV  y, 1H</span><br><span class="line">    MOV  DL, x</span><br><span class="line">    MOV  DH, y</span><br><span class="line">    MOV  BH, 0H</span><br><span class="line">    MOV  AH, 2H</span><br><span class="line">    INT  10H</span><br><span class="line">    RET</span><br><span class="line">    </span><br><span class="line">; Print the player to the console                      </span><br><span class="line">PRINT_PLAYER:      </span><br><span class="line">    MOV  DL, player</span><br><span class="line">    CALL SHOW_CHARACTER</span><br><span class="line">    RET</span><br></pre></td></tr></table></figure>
+<h4 id="（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家"><a href="#（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家" class="headerlink" title="（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家"></a>（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家</h4><ul>
+<li>监听键盘输入：w, a, s, d</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ChangePos:    </span><br><span class="line">        CALL GET_INPUT   ; get the input</span><br><span class="line">        MOV  dirInput, AL</span><br><span class="line">        ; case : w/W(up),a/A(left),s/S(down),d/D(right)</span><br><span class="line">        CMP  dirInput, &apos;W&apos;</span><br><span class="line">        JE   MOVE_NORTH</span><br><span class="line">        CMP  dirInput, &apos;A&apos;</span><br><span class="line">        JE   MOVE_WEST</span><br><span class="line">        CMP  dirInput, &apos;S&apos;</span><br><span class="line">        JE   MOVE_SOUTH</span><br><span class="line">        CMP  dirInput, &apos;D&apos;</span><br><span class="line">        JE   MOVE_EAST</span><br><span class="line">        CMP  dirInput, &apos;w&apos;</span><br><span class="line">        JE   MOVE_NORTH</span><br><span class="line">        CMP  dirInput, &apos;a&apos;</span><br><span class="line">        JE   MOVE_WEST</span><br><span class="line">        CMP  dirInput, &apos;s&apos;</span><br><span class="line">        JE   MOVE_SOUTH</span><br><span class="line">        CMP  dirInput, &apos;d&apos;</span><br><span class="line">        JE   MOVE_EAST</span><br><span class="line">        JMP  ChangePos</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据对应的输入控制角色进行相应的移动，我们以输入了W为例，整个移动过程如下<ul>
+<li>删除原位置的字符</li>
+<li>更新下一步的位置</li>
+<li>判断下一步的位置是否合法</li>
+<li>如果是，移动坐标到该位置，反之，不移动</li>
+<li>回到<code>ChangePos</code>继续监听键盘输入，进行下一步移动</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MOVE_NORTH:  </span><br><span class="line">        CALL REMOVE_OLDPOS ;remove the character in previous position </span><br><span class="line">        DEC  NextY</span><br><span class="line">        CALL ISVALID_POS</span><br><span class="line">        DEC  y             ;if the positon is empty, then update the position</span><br><span class="line">        MOV  DL, x                                          </span><br><span class="line">        MOV  DH, y</span><br><span class="line">        CALL SET_CURSOR</span><br><span class="line">        CALL PRINT_PLAYER</span><br><span class="line">        JMP  ChangePos     ; go back to the ChangePos function, to read the next input</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除原位置的字符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">;This function is used to remove the character in previous position</span><br><span class="line">REMOVE_OLDPOS:</span><br><span class="line">        MOV  DL, x                                          </span><br><span class="line">        MOV  DH, y</span><br><span class="line">        CALL SET_CURSOR                                             </span><br><span class="line">        MOV  DL, &apos; &apos;                                          </span><br><span class="line">        CALL SHOW_CHARACTER</span><br><span class="line">        RET</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断新的位置是否合法：<ul>
+<li>获得新的位置里面的字符</li>
+<li>该字符为空格，表示可以移动</li>
+<li>不为空，进入<code>POS_NOTEMPTY</code>函数判断是否为 ‘ A ’，为 ‘ A ‘，获胜；反之，表示撞到了墙，不移动</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ISVALID_POS:</span><br><span class="line">        MOV  DL, NextX     ; get the new position of the player                                </span><br><span class="line">        MOV  DH, NextY</span><br><span class="line">        CALL SET_CURSOR</span><br><span class="line">        MOV  BH, 0h      </span><br><span class="line">        CALL GET_CHARACTER ; get the character in the new position</span><br><span class="line">        MOV  position, AL   ; if if was empty, then we can the player to that direction</span><br><span class="line">        CMP  position, &apos; &apos;</span><br><span class="line">        JNE  POS_NOTEMPTY</span><br><span class="line">        RET</span><br><span class="line">        </span><br><span class="line">POS_NOTEMPTY:                  </span><br><span class="line">        CMP  position, &apos;A&apos; ; if it&apos;s the EXIT, then you win!!!</span><br><span class="line">        JE   WIN</span><br><span class="line">        MOV  DL, x                                          </span><br><span class="line">        MOV  DH, y</span><br><span class="line">        CALL SET_CURSOR</span><br><span class="line">        MOV  NextX, DL</span><br><span class="line">        MOV  NextY, DH     ; set the new position the same as the old, it means you hit the wall and can not move</span><br><span class="line">        CALL PRINT_PLAYER</span><br><span class="line">        JMP  ChangePos     ; go back to the ChangePos function, to read the next input</span><br></pre></td></tr></table></figure>
+<ul>
+<li>整个游戏过程就是不停的监听键盘输入，获得输入之后进行移动；如果此时已经离开了迷宫，则游戏成功；反之，继续监听键盘输入。</li>
+</ul>
+<h4 id="（四）逃离迷宫之后的界面"><a href="#（四）逃离迷宫之后的界面" class="headerlink" title="（四）逃离迷宫之后的界面"></a>（四）逃离迷宫之后的界面</h4><ul>
+<li>逃离迷宫后，你将会进入<code>WIN</code>函数，在这个函数里，你将选择是进入下一关（如果还有更高的难度的迷宫）还者是继续游戏（你已经通关所有难度的游戏了，可以重新再玩一次）：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">WIN:         </span><br><span class="line">        CALL CLEAN_SCREEN</span><br><span class="line">        LEA  DX, MSG_WON</span><br><span class="line">        CALL SHOW</span><br><span class="line">        CMP  difficulty,02H       ; difficulty = 02H, you have pass all the games</span><br><span class="line">        JNE  SHOW_MSG_NEXTLEVEL   ; if  difficulty != 02H, go to choose if go to the next level </span><br><span class="line">        JMP  EXIT_GAME            ; if  difficulty == 02H, go to choose if continue</span><br><span class="line"></span><br><span class="line">EXIT_GAME:</span><br><span class="line">        LEA  DX, MSG_CONTINUE     ; print the instruction</span><br><span class="line">        CALL SHOW</span><br><span class="line">        CALL READ_INPUT</span><br><span class="line">        CMP AL, &quot;Y&quot;</span><br><span class="line">        JNE   EXIT</span><br><span class="line">        JMP GAME_START</span><br><span class="line">        </span><br><span class="line">EXIT:</span><br><span class="line">        CALL CLEAN_SCREEN</span><br><span class="line">        MOV  AX, 4C00H</span><br><span class="line">        INT  21H</span><br></pre></td></tr></table></figure>
+<h4 id="（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等"><a href="#（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等" class="headerlink" title="（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等"></a>（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">; CALL this function to print in the console</span><br><span class="line">SHOW:</span><br><span class="line">	    MOV AH, 09H</span><br><span class="line">	    INT 21H</span><br><span class="line">	    RET</span><br><span class="line">	    </span><br><span class="line">; CALL this function to print a character in the console</span><br><span class="line">SHOW_CHARACTER:</span><br><span class="line">	    MOV AH, 02H</span><br><span class="line">	    INT 21H</span><br><span class="line">	    RET</span><br><span class="line">	    </span><br><span class="line">;CALL this function to clean the console    </span><br><span class="line">CLEAN_SCREEN:</span><br><span class="line">        MOV  AL, 3H</span><br><span class="line">        MOV  AH, 0H</span><br><span class="line">        INT  10H</span><br><span class="line">        RET    </span><br><span class="line"> </span><br><span class="line">; Print the player to the console                      </span><br><span class="line">PRINT_PLAYER:      </span><br><span class="line">        MOV  DL, player</span><br><span class="line">        CALL SHOW_CHARACTER</span><br><span class="line">        RET</span><br><span class="line">; Get the input from the keyboard  </span><br><span class="line">GET_INPUT: </span><br><span class="line">        MOV  AH, 7H</span><br><span class="line">        INT  21H </span><br><span class="line">        RET</span><br><span class="line">        </span><br><span class="line">; Set the position of the cursor</span><br><span class="line">SET_CURSOR:</span><br><span class="line">        MOV  AH, 2H                                            </span><br><span class="line">        INT  10H</span><br><span class="line">        RET</span><br><span class="line">        </span><br><span class="line">; Get the character in a position</span><br><span class="line">GET_CHARACTER:</span><br><span class="line">        MOV  AL, 0h</span><br><span class="line">        MOV  AH, 08h</span><br><span class="line">        INT  10H</span><br><span class="line">        RET</span><br><span class="line">; Get the input    </span><br><span class="line">READ_INPUT:</span><br><span class="line">    	MOV AH, 01</span><br><span class="line">    	INT 21H</span><br><span class="line">    	RET</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个程序的运行过程就是这样，一开始比较难处理的是如何获取某个位置的字符内容，之后通过使用上面的<code>SET_CURSOR</code>函数和<code>GET_CHARACTER</code>函数就解决了；目前让我比较在意的一点就是迷宫不能做的太大，如果做的太大的话就会导致打印的时候输出很奇怪，不过目前的程序运行起来是没有问题的๑乛◡乛๑</p>
+<p>项目下载：<a href="https://github.com/LittleFish33/MazeGameForX86" target="_blank" rel="noopener">Maze Game X86</a></p>
+
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LearnForFun/" rel="tag"># 写着玩</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/uwp/DataBindingWithConverter/" rel="next" title="现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器">
+                <i class="fa fa-chevron-left"></i> 现代操作系统应用开发：UWP——DataBinding（二）：数据绑定+转换器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uwp/TwoWayDataBinding/" rel="prev" title="现代操作系统应用开发：UWP——DataBinding（三）：双向数据绑定">
+                现代操作系统应用开发：UWP——DataBinding（三）：双向数据绑定 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE0MC8xMTY3NQ"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LittleFish</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/LittleFish33" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:3478628675@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介与实现效果"><span class="nav-number">1.</span> <span class="nav-text">功能简介与实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序流程图"><span class="nav-number">2.</span> <span class="nav-text">程序流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）第一步，我们需要在DATA-SEGMENT-中存放一些我们之后要使用的数据"><span class="nav-number">3.1.</span> <span class="nav-text">（1）第一步，我们需要在DATA SEGMENT 中存放一些我们之后要使用的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）之后我们添加进入游戏之前的引导界面代码"><span class="nav-number">3.2.</span> <span class="nav-text">（2）之后我们添加进入游戏之前的引导界面代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy-game为例："><span class="nav-number">3.3.</span> <span class="nav-text">（3）第三步，选择对应难度之后绘制对应难度的地图，下面以easy game为例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家"><span class="nav-number">3.4.</span> <span class="nav-text">（4）第四步，开始监听键盘输入指令，对输入的对应指令进行处理，移动玩家</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（四）逃离迷宫之后的界面"><span class="nav-number">3.5.</span> <span class="nav-text">（四）逃离迷宫之后的界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等"><span class="nav-number">3.6.</span> <span class="nav-text">（五）最后我们需要的提供一些功能函数：清屏，获得某个位置的内容，显示字符串，显示字符，设置光标的位置等</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LittleFish</span>
+
+  
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共18.7k字</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
