@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -125,21 +125,21 @@
 
 
 
-<meta name="description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程(1）在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applica">
+<meta name="description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applicatio">
 <meta name="keywords" content="UWP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现代操作系统应用开发：UWP——UI共享：DataTransferManager">
 <meta property="og:url" content="http://littlefish33.cn/uwp/ShowShareUI/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
-<meta property="og:description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程(1）在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applica">
+<meta property="og:description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applicatio">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/shareui_1.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/shareui_2.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-04-11T17:48:26.777Z">
+<meta property="og:updated_time" content="2018-07-26T03:30:53.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：UWP——UI共享：DataTransferManager">
-<meta name="twitter:description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程(1）在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applica">
+<meta name="twitter:description" content="功能简介使用DataTransferManager的ShowShareUI()功能，实现界面共享 示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能 实现效果 点击按钮    选择其中的邮件   实现过程在MainPage.xaml中添加一个按钮并设置相应事件123&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Applicatio">
 <meta name="twitter:image" content="http://littlefish33.cn/image/uwp/shareui_1.png">
 
 
@@ -148,7 +148,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -439,9 +439,9 @@
       
 
       
-        <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>使用DataTransferManager的ShowShareUI()功能，实现界面共享</p>
+        <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><p>使用DataTransferManager的ShowShareUI()功能，实现界面共享</p>
 <p>示例项目有一个页面MainPage，页面内只有一个按钮，点击按钮即发生共享界面功能</p>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><ul>
 <li>点击按钮</li>
 </ul>
 <p><img src="/image/uwp/shareui_1.png" alt=""></p>
@@ -449,14 +449,14 @@
 <li>选择其中的邮件</li>
 </ul>
 <p><img src="/image/uwp/shareui_2.png" alt=""></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）在MainPage-xaml中添加一个按钮并设置相应事件"><a href="#1）在MainPage-xaml中添加一个按钮并设置相应事件" class="headerlink" title="(1）在MainPage.xaml中添加一个按钮并设置相应事件"></a>(1）在MainPage.xaml中添加一个按钮并设置相应事件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"ShareUI"</span> <span class="attr">Click</span>=<span class="string">"Button_Click"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-在MainPage-xaml-cs文件中添加代码"><a href="#2-在MainPage-xaml-cs文件中添加代码" class="headerlink" title="(2) 在MainPage.xaml.cs文件中添加代码"></a>(2) 在MainPage.xaml.cs文件中添加代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> ShowShareUISample</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> sealed partial <span class="class"><span class="keyword">class</span> <span class="title">MainPage</span> :</span> Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">            <span class="comment">//使ShareRequested函数在共享操作时发生</span></span><br><span class="line">            DataTransferManager.GetForCurrentView().DataRequested += ShareRequested;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Button_Click</span><span class="params">(object sender, RoutedEventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">//启动共享</span></span><br><span class="line">            DataTransferManager.ShowShareUI();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置想要共享的内容</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ShareRequested</span><span class="params">(DataTransferManager sender, DataRequestedEventArgs args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            var deferral = args.Request.GetDeferral();</span><br><span class="line">            DataRequest request = args.Request;</span><br><span class="line">            request.Data.Properties.Title = <span class="string">"ShareUISample"</span>;</span><br><span class="line">            request.Data.SetText(<span class="string">"Description："</span> + <span class="string">"This is a line from ShareUISample. Welcome to learn UWP."</span>);</span><br><span class="line">            <span class="comment">//flash.jpg是示例代码中Asssets文件夹中的图片，可以将其改为你自己的图片</span></span><br><span class="line">            request.Data.SetBitmap(RandomAccessStreamReference.CreateFromUri(<span class="keyword">new</span> Uri(<span class="string">"ms-appx:///Assets/flash.jpg"</span>)));</span><br><span class="line">            deferral.Complete();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="在MainPage-xaml中添加一个按钮并设置相应事件"><a href="#在MainPage-xaml中添加一个按钮并设置相应事件" class="headerlink" title="在MainPage.xaml中添加一个按钮并设置相应事件"></a>在MainPage.xaml中添加一个按钮并设置相应事件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"ShareUI"</span> <span class="attr">Click</span>=<span class="string">"Button_Click"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="在MainPage-xaml-cs文件中添加代码"><a href="#在MainPage-xaml-cs文件中添加代码" class="headerlink" title="在MainPage.xaml.cs文件中添加代码"></a>在MainPage.xaml.cs文件中添加代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> ShowShareUISample</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> sealed partial <span class="class"><span class="keyword">class</span> <span class="title">MainPage</span> :</span> Page</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">            <span class="comment">//使ShareRequested函数在共享操作时发生</span></span><br><span class="line">            DataTransferManager.GetForCurrentView().DataRequested += ShareRequested;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Button_Click</span><span class="params">(object sender, RoutedEventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">//启动共享</span></span><br><span class="line">            DataTransferManager.ShowShareUI();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置想要共享的内容</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ShareRequested</span><span class="params">(DataTransferManager sender, DataRequestedEventArgs args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            var deferral = args.Request.GetDeferral();</span><br><span class="line">            DataRequest request = args.Request;</span><br><span class="line">            request.Data.Properties.Title = <span class="string">"ShareUISample"</span>;</span><br><span class="line">            request.Data.SetText(<span class="string">"Description："</span> + <span class="string">"This is a line from ShareUISample. Welcome to learn UWP."</span>);</span><br><span class="line">            <span class="comment">//flash.jpg是示例代码中Asssets文件夹中的图片，可以将其改为你自己的图片</span></span><br><span class="line">            request.Data.SetBitmap(RandomAccessStreamReference.CreateFromUri(<span class="keyword">new</span> Uri(<span class="string">"ms-appx:///Assets/flash.jpg"</span>)));</span><br><span class="line">            deferral.Complete();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>需要注意的地方：</p>
 <ul>
 <li>在构造函数中绑定方法</li>
 <li>在ShareRequested中添加共享的内容（Title和Text是必须的）</li>
 </ul>
-<h3 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h3><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/ShowShareUISample" target="_blank" rel="noopener">ShowShareUISample</a></p>
+<h1 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h1><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/ShowShareUISample" target="_blank" rel="noopener">ShowShareUISample</a></p>
 <p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
 <p><img src="/image/uwp/x64.png" alt=""></p>
 
@@ -584,7 +584,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -595,7 +595,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -606,7 +606,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -655,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）在MainPage-xaml中添加一个按钮并设置相应事件"><span class="nav-number">3.1.</span> <span class="nav-text">(1）在MainPage.xaml中添加一个按钮并设置相应事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在MainPage-xaml-cs文件中添加代码"><span class="nav-number">3.2.</span> <span class="nav-text">(2) 在MainPage.xaml.cs文件中添加代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FYI"><span class="nav-number">4.</span> <span class="nav-text">FYI</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml中添加一个按钮并设置相应事件"><span class="nav-number">3.1.</span> <span class="nav-text">在MainPage.xaml中添加一个按钮并设置相应事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在MainPage-xaml-cs文件中添加代码"><span class="nav-number">3.1.1.</span> <span class="nav-text">在MainPage.xaml.cs文件中添加代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FYI"><span class="nav-number">4.</span> <span class="nav-text">FYI</span></a></li></ol></div>
             
 
           </div>
@@ -686,7 +686,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.1k字</span>
+  <span class="post-count">博客全站共20.6k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -704,7 +704,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div> 
 -->
 
 
@@ -804,6 +804,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

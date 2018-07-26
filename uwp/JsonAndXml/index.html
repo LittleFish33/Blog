@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -138,7 +138,7 @@
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/HttpException.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/juheData.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-05-15T15:10:20.858Z">
+<meta property="og:updated_time" content="2018-07-26T03:30:50.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：网络编程（一）：Json字符串和Xml字符串解析">
 <meta name="twitter:description" content="功能简介好久没写博客了，└༼ ಥ ᗜ ಥ ༽┘！！！ 很简单的功能：分别使用System.Xml.XmlDocument 和 Windows.Data.Json 解析并提取服务器端传来的Xml字符串和Json字符串，这里使用聚合数据API 提供的数据，Xml字符串提供12306火车票查询，Json字符串提供天气查询，示例项目将通过返回的字符串提取我们想要的数据并显示出来 实现效果 Json：天气查">
@@ -150,7 +150,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -441,9 +441,9 @@
       
 
       
-        <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>好久没写博客了，└༼ ಥ ᗜ ಥ ༽┘！！！</p>
+        <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><p>好久没写博客了，└༼ ಥ ᗜ ಥ ༽┘！！！</p>
 <p>很简单的功能：分别使用<code>System.Xml.XmlDocument</code> 和 <code>Windows.Data.Json</code> 解析并提取服务器端传来的Xml字符串和Json字符串，这里使用<a href="https://www.juhe.cn/" target="_blank" rel="noopener">聚合数据API</a> 提供的数据，Xml字符串提供12306火车票查询，Json字符串提供天气查询，示例项目将通过返回的字符串提取我们想要的数据并显示出来</p>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><ul>
 <li>Json：天气查询</li>
 </ul>
 <p><img src="/image/uwp/JsonWeather.png" alt=""></p>
@@ -455,15 +455,15 @@
 <li>输入错误，异常判断</li>
 </ul>
 <p><img src="/image/uwp/HttpException.png" alt=""></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）获得数据"><a href="#1）获得数据" class="headerlink" title="(1）获得数据"></a>(1）获得数据</h4><p>首先，我们需要从聚合数据中获得数据并且知道返回的数据的格式，在聚合数据上注册，申请数据（部分数据的需要收费，这里使用的天气查询和12306查询首次申请将赠送500次使用次数），将得到下面的结果：</p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="获得数据"><a href="#获得数据" class="headerlink" title="获得数据"></a>获得数据</h2><p>首先，我们需要从聚合数据中获得数据并且知道返回的数据的格式，在聚合数据上注册，申请数据（部分数据的需要收费，这里使用的天气查询和12306查询首次申请将赠送500次使用次数），将得到下面的结果：</p>
 <p><img src="/image/uwp/juheData.png" alt=""></p>
 <p>选择一个接口，如<a href="https://www.juhe.cn/docs/api/id/39" target="_blank" rel="noopener">天气查询</a>，我们将使用并解析该接口的返回数据得到我们需要的信息，返回的Json字符串如下所示</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/* 聚合数据返回的Json字符串数据示例 */</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"resultcode"</span>: <span class="string">"200"</span>,</span><br><span class="line">    <span class="attr">"reason"</span>: <span class="string">"查询成功!"</span>,</span><br><span class="line">    <span class="attr">"result"</span>: &#123;</span><br><span class="line">        /* 该接口返回了相当详细的数据，可以查看官网获得更多信息</span><br><span class="line">         * 这里省略了大部分的内容，只显示出了该次实验需要提取的数据 </span><br><span class="line">         */</span><br><span class="line">        "today": &#123;</span><br><span class="line">            "city": "天津",</span><br><span class="line">            "date_y": "2014年03月21日",</span><br><span class="line">            "week": "星期五",</span><br><span class="line">            "temperature": "8℃~20℃",	/*今日温度*/</span><br><span class="line">            "weather": "晴转霾",	/*今日天气*/</span><br><span class="line">            "weather_id": &#123;	/*天气唯一标识*/</span><br><span class="line">                "fa": "00",	/*天气标识00：晴*/</span><br><span class="line">                "fb": "53"	/*天气标识53：霾 如果fa不等于fb，说明是组合天气*/</span><br><span class="line">            &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>另一个例子是火车票查询接口，这里我们通过解析Xml字符串获得我们需要的信息</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resultcode</span>&gt;</span>200<span class="tag">&lt;/<span class="name">resultcode</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">reason</span>&gt;</span>查询成功<span class="tag">&lt;/<span class="name">reason</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">train_info</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>g4<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">start</span>&gt;</span>上海虹桥<span class="tag">&lt;/<span class="name">start</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">end</span>&gt;</span>北京南<span class="tag">&lt;/<span class="name">end</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">starttime</span>&gt;</span>14:00<span class="tag">&lt;/<span class="name">starttime</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">endtime</span>&gt;</span>18:28<span class="tag">&lt;/<span class="name">endtime</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mileage</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">train_info</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">station_list</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里省略了一下这次项目没有使用的值，可以查看官网获得更多信息 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">station_list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-在MainPage-xaml中添加需要的控件"><a href="#2-在MainPage-xaml中添加需要的控件" class="headerlink" title="(2) 在MainPage.xaml中添加需要的控件"></a>(2) 在MainPage.xaml中添加需要的控件</h4><p>在这里，我们添加两个文本输入框和两个按钮，用于输入我们的信息</p>
+<h2 id="在MainPage-xaml中添加需要的控件"><a href="#在MainPage-xaml中添加需要的控件" class="headerlink" title="在MainPage.xaml中添加需要的控件"></a>在MainPage.xaml中添加需要的控件</h2><p>在这里，我们添加两个文本输入框和两个按钮，用于输入我们的信息</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MainPage.xaml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StackPanel</span>  <span class="attr">Margin</span>=<span class="string">"10"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextBox</span> <span class="attr">Header</span>=<span class="string">"City"</span> <span class="attr">Margin</span>=<span class="string">"10"</span> <span class="attr">x:Name</span>=<span class="string">"cityBox"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBox</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"查询天气"</span> <span class="attr">Click</span>=<span class="string">"queryWeather"</span> <span class="attr">Margin</span>=<span class="string">"10"</span> <span class="attr">x:Name</span>=<span class="string">"button"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextBox</span> <span class="attr">Header</span>=<span class="string">"Train Id"</span>  <span class="attr">Margin</span>=<span class="string">"10"</span> <span class="attr">x:Name</span>=<span class="string">"trainBox"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBox</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"12306火车票查询"</span> <span class="attr">Click</span>=<span class="string">"queryTrain"</span> <span class="attr">Margin</span>=<span class="string">"10"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="3）在MainPage-xaml-cs中添加代码"><a href="#3）在MainPage-xaml-cs中添加代码" class="headerlink" title="(3）在MainPage.xaml.cs中添加代码"></a>(3）在MainPage.xaml.cs中添加代码</h4><ul>
+<h2 id="在MainPage-xaml-cs中添加代码"><a href="#在MainPage-xaml-cs中添加代码" class="headerlink" title="在MainPage.xaml.cs中添加代码"></a>在MainPage.xaml.cs中添加代码</h2><ul>
 <li>添加对应的成员</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MainPage.xaml.cs</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 以查询火车票为例，</span></span><br><span class="line"><span class="comment"> * 一般的查询链接为：http://apis.juhe.cn/train/s?name=你想要查询的火车的编号&amp;key=你申请的APPKEY</span></span><br><span class="line"><span class="comment"> * 因此根据下面的string对象，在查询时将使用：trainStr + 你想要查询的火车的编号 + trainKey</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> trainStr = <span class="string">"http://apis.juhe.cn/train/s?dtype=xml&amp;name="</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> weatherStr = <span class="string">"http://v.juhe.cn/weather/index?format=2&amp;cityname="</span>;</span><br><span class="line"><span class="comment">//App Key，唯一标识，这里需要替换为你注册申请的链接</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> trainKey = <span class="string">"&amp;key=9ec62157b998149569d54ae25cbaa8e5"</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> weatherKey = <span class="string">"&amp;key=0e3c2dab2c8a77f4bac1138099a812ea"</span>;</span><br></pre></td></tr></table></figure>
@@ -482,12 +482,13 @@
 <li>使用<code>JsonObject</code>解析Json字符串内嵌的Json字符串，提取我们想要的信息</li>
 <li>使用<code>XmlDocument</code> 解析Xml字符串</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>关于Json字符串和Xml字符串的解析，可以查看微软官方文档获取更加深入的理解  ：<a href="https://docs.microsoft.com/zh-cn/uwp/api/windows.data.json.jsonobject" target="_blank" rel="noopener">JsonObject Class</a>，<a href="https://msdn.microsoft.com/library/windows/apps/windows.data.xml.dom.xmldocument.aspx" target="_blank" rel="noopener">XmlDocument Class</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>关于Json字符串和Xml字符串的解析，可以查看微软官方文档获取更加深入的理解  ：<a href="https://docs.microsoft.com/zh-cn/uwp/api/windows.data.json.jsonobject" target="_blank" rel="noopener">JsonObject Class</a>，<a href="https://msdn.microsoft.com/library/windows/apps/windows.data.xml.dom.xmldocument.aspx" target="_blank" rel="noopener">XmlDocument Class</a></p>
 <p>关于UWP网络编程，解析Json字符串和Xml字符串只是冰山一角，有空的话，将会补充其他一些关于网络编程的内容（才怪）</p>
-<h3 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h3><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/JsonAndXmlSample" target="_blank" rel="noopener">JsonAndXmlSample</a></p>
+<h1 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h1><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/JsonAndXmlSample" target="_blank" rel="noopener">JsonAndXmlSample</a></p>
 <p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
 <p><img src="/image/uwp/x64.png" alt=""></p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>另一种更加简单的Json字符串解析方法：<a href="http://littlefish33.cn/uwp/JsonParsing">Newtonsoft.Json</a></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>另一种更加简单的Json字符串解析方法：<a href="http://littlefish33.cn/uwp/JsonParsing">Newtonsoft.Json</a></p>
+<p>(￣ε(#￣)☆╰╮o(￣皿￣///)不早说</p>
 
       
     </div>
@@ -613,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +625,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +636,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -684,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）获得数据"><span class="nav-number">3.1.</span> <span class="nav-text">(1）获得数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在MainPage-xaml中添加需要的控件"><span class="nav-number">3.2.</span> <span class="nav-text">(2) 在MainPage.xaml中添加需要的控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）在MainPage-xaml-cs中添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">(3）在MainPage.xaml.cs中添加代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FYI"><span class="nav-number">5.</span> <span class="nav-text">FYI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获得数据"><span class="nav-number">3.1.</span> <span class="nav-text">获得数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml中添加需要的控件"><span class="nav-number">3.2.</span> <span class="nav-text">在MainPage.xaml中添加需要的控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml-cs中添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">在MainPage.xaml.cs中添加代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FYI"><span class="nav-number">5.</span> <span class="nav-text">FYI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>
@@ -715,7 +716,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.1k字</span>
+  <span class="post-count">博客全站共20.6k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -733,7 +734,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div> 
 -->
 
 
@@ -833,6 +834,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

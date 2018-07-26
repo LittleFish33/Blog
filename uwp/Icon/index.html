@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -125,23 +125,21 @@
 
 
 
-<meta name="description" content="功能简介UWP 自适应界面，布局面板依据可用的屏幕空间，指定界面元素的大小和位置，设置相应控件的属性； 示例项目的实现的功能：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控件123456789&amp;lt;Grid Background=&quot;&amp;#123;The">
+<meta name="description" content="背景应用程序很多时候需要图标，这里介绍两种常用的方法：  使用Segoe MDL2 Assets 提供的图标库简易实现 使用Microsoft Expression Design自己 绘制  Segoe MDL2 Assets如果使用 C#/VB/C++ 和 XAML 开发应用，可通过 Symbol 枚举使用 Segoe MDL2 Assets 中的指定字形。 1&amp;lt;SymbolIcon Sy">
 <meta name="keywords" content="UWP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
-<meta property="og:url" content="http://littlefish33.cn/uwp/AdaptiveUI/index.html">
+<meta property="og:title" content="现代操作系统应用开发：UWP——应用图标的实现方法">
+<meta property="og:url" content="http://littlefish33.cn/uwp/Icon/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
-<meta property="og:description" content="功能简介UWP 自适应界面，布局面板依据可用的屏幕空间，指定界面元素的大小和位置，设置相应控件的属性； 示例项目的实现的功能：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控件123456789&amp;lt;Grid Background=&quot;&amp;#123;The">
+<meta property="og:description" content="背景应用程序很多时候需要图标，这里介绍两种常用的方法：  使用Segoe MDL2 Assets 提供的图标库简易实现 使用Microsoft Expression Design自己 绘制  Segoe MDL2 Assets如果使用 C#/VB/C++ 和 XAML 开发应用，可通过 Symbol 枚举使用 Segoe MDL2 Assets 中的指定字形。 1&amp;lt;SymbolIcon Sy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/Wide.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/Narrow.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/GridDefinition.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-04-10T14:58:30.802Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/uwp/Icon.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/uwp/playIcon.png">
+<meta property="og:updated_time" content="2018-07-26T15:09:11.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)">
-<meta name="twitter:description" content="功能简介UWP 自适应界面，布局面板依据可用的屏幕空间，指定界面元素的大小和位置，设置相应控件的属性； 示例项目的实现的功能：  当窗口大小大于600时，同时并排显示两张图片 当窗口大小小于600时，只显示一张图片  实现效果 宽屏状态下：    窄屏状态下：   实现过程（1）在MainPage.xml中创建需要的控件123456789&amp;lt;Grid Background=&quot;&amp;#123;The">
-<meta name="twitter:image" content="http://littlefish33.cn/image/uwp/Wide.png">
+<meta name="twitter:title" content="现代操作系统应用开发：UWP——应用图标的实现方法">
+<meta name="twitter:description" content="背景应用程序很多时候需要图标，这里介绍两种常用的方法：  使用Segoe MDL2 Assets 提供的图标库简易实现 使用Microsoft Expression Design自己 绘制  Segoe MDL2 Assets如果使用 C#/VB/C++ 和 XAML 开发应用，可通过 Symbol 枚举使用 Segoe MDL2 Assets 中的指定字形。 1&amp;lt;SymbolIcon Sy">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/uwp/Icon.png">
 
 
 
@@ -149,7 +147,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -171,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="http://littlefish33.cn/uwp/AdaptiveUI/"/>
+  <link rel="canonical" href="http://littlefish33.cn/uwp/Icon/"/>
 
 
 
 
 
-  <title>现代操作系统应用开发：UWP——自适应界面Adaptive UI(一) | LittleFish's Blog</title>
+  <title>现代操作系统应用开发：UWP——应用图标的实现方法 | LittleFish's Blog</title>
   
 
 
@@ -340,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/uwp/AdaptiveUI/">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/uwp/Icon/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LittleFish">
@@ -357,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">现代操作系统应用开发：UWP——自适应界面Adaptive UI(一)</h1>
+          <h1 class="post-title" itemprop="name headline">现代操作系统应用开发：UWP——应用图标的实现方法</h1>
         
 
         <div class="post-meta">
@@ -369,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T12:00:00+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T23:07:00+08:00">
+                2018-07-26
               </time>
             
 
@@ -440,42 +438,26 @@
       
 
       
-        <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>UWP 自适应界面，布局面板依据可用的屏幕空间，指定界面元素的大小和位置，设置相应控件的属性；</p>
-<p>示例项目的实现的功能：</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>应用程序很多时候需要图标，这里介绍两种常用的方法：</p>
 <ul>
-<li>当窗口大小大于600时，同时并排显示两张图片</li>
-<li>当窗口大小小于600时，只显示一张图片</li>
+<li>使用<strong>Segoe MDL2 Assets</strong> 提供的图标库简易实现</li>
+<li>使用<strong>Microsoft Expression Design</strong>自己 绘制</li>
 </ul>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
-<li>宽屏状态下：</li>
-</ul>
-<p><img src="/image/uwp/Wide.png" alt=""></p>
-<ul>
-<li>窄屏状态下：</li>
-</ul>
-<p><img src="/image/uwp/Narrow.png" alt=""></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="（1）在MainPage-xml中创建需要的控件"><a href="#（1）在MainPage-xml中创建需要的控件" class="headerlink" title="（1）在MainPage.xml中创建需要的控件"></a>（1）在MainPage.xml中创建需要的控件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!-- 创建了两个Image控件，放在Grid的第一列和第二列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> <span class="attr">x:Name</span>=<span class="string">"RightColumn"</span>&gt;</span><span class="tag">&lt;/<span class="name">ColumnDefinition</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">Source</span>=<span class="string">"Assets/left.jpg"</span> &gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Source</span>=<span class="string">"Assets/right.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-使用VisualStateManager"><a href="#2-使用VisualStateManager" class="headerlink" title="(2) 使用VisualStateManager"></a>(2) 使用VisualStateManager</h4><p>在你要添加自适应的Grid添加下面这段代码，这里主要是设置了不同的VisualState，直译就是可视状态，不同的可视状态可以在Setter中设置自己想要的值</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">VisualStateGroup</span> <span class="attr">x:Name</span>=<span class="string">"LayoutVisualStates"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里设置了两个VisualState：WideLayout和NarrowLayout,x:Name是你自己取得名字 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"WideLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">				这里实际上可以包括多个setter，Target为对应控件的属性，Value为你想要设置的属性值 </span></span><br><span class="line"><span class="comment">				当处于WideLayout状态下时，RightColumn（对应是哪个控件见上面）的宽度被设置为*</span></span><br><span class="line"><span class="comment">			   --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"*"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">VisualState</span> <span class="attr">x:Name</span>=<span class="string">"NarrowLayout"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 这里也是同样的道理 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Target</span>=<span class="string">"RightColumn.Width"</span> <span class="attr">Value</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">VisualState.Setters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">VisualState</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">VisualStateGroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">VisualStateManager.VisualStateGroups</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="（3）在构造函数上添加函数监听窗口尺寸变化"><a href="#（3）在构造函数上添加函数监听窗口尺寸变化" class="headerlink" title="（3）在构造函数上添加函数监听窗口尺寸变化"></a>（3）在构造函数上添加函数监听窗口尺寸变化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainPage</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * C#事件订阅</span></span><br><span class="line"><span class="comment">    * Lambda表达式，s和e为传入参数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">this</span>.SizeChanged += (s, e) =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//首先，state默认设置为WideLayout（WideLayout是你在xaml里设置的名字）</span></span><br><span class="line">        var state = <span class="string">"WideLayout"</span>;</span><br><span class="line">        <span class="keyword">if</span> (e.NewSize.Width &gt; <span class="number">000</span> &amp;&amp; e.NewSize.Width &lt; <span class="number">600</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//如果界面小于600，则将state设置为NarrowLayout</span></span><br><span class="line">            state = <span class="string">"NarrowLayout"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//这里将变换State</span></span><br><span class="line">        VisualStateManager.GoToState(<span class="keyword">this</span>, state, <span class="literal">true</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><h4 id="关于-lt-Grid-ColumnDefinitions-gt-和-lt-Grid-RowDefinitions-gt"><a href="#关于-lt-Grid-ColumnDefinitions-gt-和-lt-Grid-RowDefinitions-gt" class="headerlink" title="关于&lt;Grid.ColumnDefinitions&gt;和&lt;Grid.RowDefinitions&gt;"></a>关于&lt;Grid.ColumnDefinitions&gt;和&lt;Grid.RowDefinitions&gt;</h4><ul>
-<li>Grid.ColumnDefinitions 和 Grid.RowDefinition 会将整个Grid控件划分行和分列，如上边的例子将会把Grid分为两列</li>
-<li>那么ColumnDefinitions里的Width属性表示什么呢？Width表示该列的宽度，有三种取值：<ul>
-<li>Auto：该控件有多宽，呈现出来就有多宽，比如说如果该列的内容是一张图片，那么按原图片的宽度显示出来</li>
-<li>具体数值，如400：即直接指定控件的宽度（不推荐直接指定控件的宽度，因为UWP应用是跨平台的，如果指定宽度的话，在一台电脑里也许这个宽度看起来挺好的，换成windowPhone就。。。）</li>
-<li>“*“或一个整数/小数紧跟着一个星号，表示的是整个Grid控件的宽度减去属性为Auto和具体数值的控件的宽度，剩下的宽度按比例分给这些带星号的控件，数值越大分的越多</li>
-</ul>
-</li>
-<li>下面是一个具体的例子：</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"20"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"30"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">BorderBrush</span>=<span class="string">"AliceBlue"</span> <span class="attr">BorderThickness</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果截图：</p>
-<p><img src="/image/uwp/GridDefinition.png" alt=""></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个自适应界面的实现过程大致就是这样了，其实这其中最重要的部分就是第二部分，VisualStateManager中Setter的设置，除了文中提到的Width设置，你还可以根据自己的需要设置不同的值，反正可以在Xaml文件中设置的控件的属性值都利用Setter设置</p>
-<h3 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h3><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/AdaptiveUISample" target="_blank" rel="noopener">AdaptiveUISample</a></p>
-<p>友链：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events" target="_blank" rel="noopener">C# 事件订阅</a></p>
-<p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
-<p><img src="/image/uwp/x64.png" alt=""></p>
+<h2 id="Segoe-MDL2-Assets"><a href="#Segoe-MDL2-Assets" class="headerlink" title="Segoe MDL2 Assets"></a>Segoe MDL2 Assets</h2><p>如果使用 C#/VB/C++ 和 XAML 开发应用，可通过 <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol" target="_blank" rel="noopener">Symbol 枚举</a>使用 Segoe MDL2 Assets 中的指定字形。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">SymbolIcon</span> <span class="attr">Symbol</span>=<span class="string">"GlobalNavigationButton"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是Symbol 枚举提供的图标有限，如果想使用 Symbol 枚举中未包含的 <strong>Segoe MDL2 Assets</strong> 字体的字形，可使用 <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon" target="_blank" rel="noopener"><strong>FontIcon</strong></a>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">FontIcon</span> <span class="attr">FontFamily</span>=<span class="string">"Segoe MDL2 Assets"</span> <span class="attr">Glyph</span>=<span class="string">"&amp;#xE700;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>FontIcon</code> 提供的图标还是比较全面的，全部可以使用的图标可以参考<a href="https://docs.microsoft.com/zh-cn/windows/uwp/design/style/segoe-ui-symbol-font" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="自己绘制Icon图标"><a href="#自己绘制Icon图标" class="headerlink" title="自己绘制Icon图标"></a>自己绘制Icon图标</h2><p>有时候，如果没法找到我们想要的图标的时候，这个时候我们就可以考虑自己绘制图标了：</p>
+<h3 id="第一步，下载Microsoft-Expression-Design"><a href="#第一步，下载Microsoft-Expression-Design" class="headerlink" title="第一步，下载Microsoft Expression Design"></a>第一步，下载Microsoft Expression Design</h3><p>微软官方有免费版本，足够使用了，直接下载就好，<a href="https://www.microsoft.com/en-us/download/details.aspx?id=36180" target="_blank" rel="noopener">传送门</a></p>
+<h3 id="第二步，绘制自己想要的图标"><a href="#第二步，绘制自己想要的图标" class="headerlink" title="第二步，绘制自己想要的图标"></a>第二步，绘制自己想要的图标</h3><p>绘制好图标之后，菜单栏选择 File–&gt;Export</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/uwp/Icon.png" alt=""></p>
+<p>右边可以设置对应的导出参数，这个看一下就明白了。</p>
+<p>我的导出结果：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">Canvas</span> <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span> <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span> <span class="attr">x:Name</span>=<span class="string">"Untitled1"</span> <span class="attr">Width</span>=<span class="string">"800"</span> <span class="attr">Height</span>=<span class="string">"600"</span> <span class="attr">Clip</span>=<span class="string">"F1 M 0,0L 800,0L 800,600L 0,600L 0,0"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Canvas</span> <span class="attr">x:Name</span>=<span class="string">"Layer_1"</span> <span class="attr">Width</span>=<span class="string">"800"</span> <span class="attr">Height</span>=<span class="string">"600"</span> <span class="attr">Canvas.Left</span>=<span class="string">"0"</span> <span class="attr">Canvas.Top</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Ellipse</span> <span class="attr">x:Name</span>=<span class="string">"Ellipse"</span> <span class="attr">Width</span>=<span class="string">"438"</span> <span class="attr">Height</span>=<span class="string">"423"</span> <span class="attr">Canvas.Left</span>=<span class="string">"181.5"</span> <span class="attr">Canvas.Top</span>=<span class="string">"85.4999"</span> <span class="attr">Stretch</span>=<span class="string">"Fill"</span> <span class="attr">StrokeLineJoin</span>=<span class="string">"Round"</span> <span class="attr">Stroke</span>=<span class="string">"#FF000000"</span> <span class="attr">Fill</span>=<span class="string">"#FFFFFFFF"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Path</span> <span class="attr">x:Name</span>=<span class="string">"Path"</span> <span class="attr">Width</span>=<span class="string">"232"</span> <span class="attr">Height</span>=<span class="string">"267.736"</span> <span class="attr">Canvas.Left</span>=<span class="string">"324.5"</span> <span class="attr">Canvas.Top</span>=<span class="string">"174.132"</span> <span class="attr">Stretch</span>=<span class="string">"Fill"</span> <span class="attr">StrokeLineJoin</span>=<span class="string">"Round"</span> <span class="attr">Stroke</span>=<span class="string">"#FF000000"</span> <span class="attr">Fill</span>=<span class="string">"#FFFFFFFF"</span> <span class="attr">Data</span>=<span class="string">"F1 M 556,308L 325,174.632L 325,441.368L 556,308 Z "</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">Canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后就可以使用这段代码提供的path绘制我们的图标了，比如说我们使用该图标创建一个按钮：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Stretch"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span> <span class="attr">Padding</span>=<span class="string">"0"</span> <span class="attr">Width</span>=<span class="string">"40"</span> <span class="attr">Height</span>=<span class="string">"40"</span> <span class="attr">Background</span>=<span class="string">"Transparent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Grid</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Ellipse</span> <span class="attr">Fill</span>=<span class="string">"Red"</span> <span class="attr">Height</span>=<span class="string">"35"</span> <span class="attr">Width</span>=<span class="string">"35"</span> <span class="attr">Margin</span>=<span class="string">"0"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Ellipse</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 这里的Data就是上面生成的代码里的Data --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Path</span> <span class="attr">Data</span>=<span class="string">"F1 M 556,308L 325,174.632L 325,441.368L 556,308 Z"</span> <span class="attr">Stretch</span>=<span class="string">"Uniform"</span> <span class="attr">Fill</span>=<span class="string">"White"</span> <span class="attr">Width</span>=<span class="string">"14"</span> <span class="attr">Height</span>=<span class="string">"14"</span> <span class="attr">Margin</span>=<span class="string">"0,0,0,0"</span> <span class="attr">RenderTransformOrigin</span>=<span class="string">"0.5,0.5"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Path.RenderTransform</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">CompositeTransform</span> <span class="attr">TranslateX</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Path.RenderTransform</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Path</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/uwp/playIcon.png" alt=""></p>
 
       
     </div>
@@ -507,15 +489,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/CodeBase/Singleton/" rel="next" title="我的代码仓库：单例模式">
+                <i class="fa fa-chevron-left"></i> 我的代码仓库：单例模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/uwp/AdaptiveUI/2/" rel="prev" title="现代操作系统应用开发：UWP——自适应界面Adaptive UI(二)">
-                现代操作系统应用开发：UWP——自适应界面Adaptive UI(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,7 +579,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -608,7 +590,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -619,7 +601,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -668,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）在MainPage-xml中创建需要的控件"><span class="nav-number">3.1.</span> <span class="nav-text">（1）在MainPage.xml中创建需要的控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用VisualStateManager"><span class="nav-number">3.2.</span> <span class="nav-text">(2) 使用VisualStateManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）在构造函数上添加函数监听窗口尺寸变化"><span class="nav-number">3.3.</span> <span class="nav-text">（3）在构造函数上添加函数监听窗口尺寸变化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">4.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于-lt-Grid-ColumnDefinitions-gt-和-lt-Grid-RowDefinitions-gt"><span class="nav-number">4.1.</span> <span class="nav-text">关于&lt;Grid.ColumnDefinitions&gt;和&lt;Grid.RowDefinitions&gt;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FYI"><span class="nav-number">6.</span> <span class="nav-text">FYI</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Segoe-MDL2-Assets"><span class="nav-number">2.</span> <span class="nav-text">Segoe MDL2 Assets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己绘制Icon图标"><span class="nav-number">3.</span> <span class="nav-text">自己绘制Icon图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步，下载Microsoft-Expression-Design"><span class="nav-number">3.1.</span> <span class="nav-text">第一步，下载Microsoft Expression Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步，绘制自己想要的图标"><span class="nav-number">3.2.</span> <span class="nav-text">第二步，绘制自己想要的图标</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -699,7 +681,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.1k字</span>
+  <span class="post-count">博客全站共20.6k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -717,7 +699,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div> 
 -->
 
 
@@ -817,6 +799,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

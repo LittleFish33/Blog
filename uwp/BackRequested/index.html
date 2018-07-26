@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -137,7 +137,7 @@
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/AfterNavigate.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/NavigateBack.png">
 <meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-04-10T14:58:32.641Z">
+<meta property="og:updated_time" content="2018-07-26T03:30:47.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统应用开发：UWP——标题栏后退按钮的实现和页面缓存">
 <meta name="twitter:description" content="功能简介示例项目有两个页面，MainPage和NewPage，实现从MainPage跳转到NewPage，再从NewPage后退到MainPage，同时还原Mainpage之前的状态； MainPage.xaml代码如下： 123456789101112&amp;lt;!-- MainPage.xaml --&amp;gt;&amp;lt;Grid Background=&quot;&amp;#123;ThemeResource Appl">
@@ -149,7 +149,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -440,12 +440,12 @@
       
 
       
-        <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>示例项目有两个页面，MainPage和NewPage，实现从MainPage跳转到NewPage，再从NewPage后退到MainPage，同时还原Mainpage之前的状态；</p>
+        <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><p>示例项目有两个页面，MainPage和NewPage，实现从MainPage跳转到NewPage，再从NewPage后退到MainPage，同时还原Mainpage之前的状态；</p>
 <p>MainPage.xaml代码如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MainPage.xaml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StackPanel</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment"> 			一个文本块，一个文本框（可以在其中输入数据，跳转回来后文本框的内容依然存在）</span></span><br><span class="line"><span class="comment">			按钮，点击跳转</span></span><br><span class="line"><span class="comment"> 		--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"This is the MainPage"</span> <span class="attr">Margin</span>=<span class="string">"5"</span> <span class="attr">FontSize</span>=<span class="string">"40"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBlock</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextBox</span>  <span class="attr">Margin</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBox</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Navigate To NewPage"</span> <span class="attr">Click</span>=<span class="string">"NavigateToNewPage"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>NewPage.xaml的代码如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- NewPage.xaml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span>、</span><br><span class="line">    <span class="comment">&lt;!-- 就一行，告诉你页面跳转了 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"This is the NewPage"</span> <span class="attr">FontSize</span>=<span class="string">"40"</span>&gt;</span><span class="tag">&lt;/<span class="name">TextBlock</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><ul>
 <li>跳转前—MainPage：在文本框内随意输入内容</li>
 </ul>
 <p><img src="/image/uwp/BeforeNavigate.png" alt=""></p>
@@ -457,9 +457,9 @@
 <li>后退—MainPage：之前文本框内的内容被保留了下来</li>
 </ul>
 <p><img src="/image/uwp/NavigateBack.png" alt=""></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"><a href="#1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中" class="headerlink" title="(1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"></a>(1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中</h4><p>关于新建一个页面的方法：</p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"><a href="#新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中" class="headerlink" title="新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"></a>新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中</h2><p>关于新建一个页面的方法：</p>
 <p>解决方案资源管理器—&gt;添加—&gt;新建项—&gt;Visual C#—&gt;空白页</p>
-<h4 id="2-修改App-xaml-cs"><a href="#2-修改App-xaml-cs" class="headerlink" title="(2) 修改App.xaml.cs"></a>(2) 修改App.xaml.cs</h4><ul>
+<h2 id="修改App-xaml-cs"><a href="#修改App-xaml-cs" class="headerlink" title="修改App.xaml.cs"></a>修改App.xaml.cs</h2><ul>
 <li>在 OnLaunched方法中添加下面的代码</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 这里用到了事件的C#事件订阅</span></span><br><span class="line"><span class="comment">* SystemNavigationManager.GetForCurrentView().BackRequested将在后退导航的时候发生，</span></span><br><span class="line"><span class="comment">* 而 += 符号右边的BackRequested是我们自定义的函数，将在下面声明定义</span></span><br><span class="line"><span class="comment">* += 符号是该自定义函数在后退导航的时候，会被调用；</span></span><br><span class="line"><span class="comment">* 同理，OnNavigated将在跳转到想要的页面的时候调用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;</span><br><span class="line">rootFrame.Navigated += OnNavigated;</span><br></pre></td></tr></table></figure>
@@ -471,9 +471,9 @@
 <li>在App.xaml.cs中定义函数：OnNavigated</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//跳转到你想要的页面时发生</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnNavigated</span><span class="params">(object sender, NavigationEventArgs e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//AppViewBackButtonVisibility为标题栏后退按钮是否可见</span></span><br><span class="line">    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame)sender).CanGoBack ?</span><br><span class="line">        AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3）在MainPage-xaml-cs的构造函数上添加代码"><a href="#3）在MainPage-xaml-cs的构造函数上添加代码" class="headerlink" title="(3）在MainPage.xaml.cs的构造函数上添加代码"></a>(3）在MainPage.xaml.cs的构造函数上添加代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;</span><br></pre></td></tr></table></figure>
+<h2 id="在MainPage-xaml-cs的构造函数上添加代码"><a href="#在MainPage-xaml-cs的构造函数上添加代码" class="headerlink" title="在MainPage.xaml.cs的构造函数上添加代码"></a>在MainPage.xaml.cs的构造函数上添加代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;</span><br></pre></td></tr></table></figure>
 <p>这行代码将开启页面缓存，如果需要频繁切换页面，而且页面信息不必实时更新时，使用页面缓存是非常高效的；</p>
-<h3 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h3><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/BackRequestedSample" target="_blank" rel="noopener">BackRequestedSample</a></p>
+<h1 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h1><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/BackRequestedSample" target="_blank" rel="noopener">BackRequestedSample</a></p>
 <p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
 <p><img src="/image/uwp/x64.png" alt=""></p>
 
@@ -601,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -612,7 +612,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -623,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -672,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"><span class="nav-number">3.1.</span> <span class="nav-text">(1）新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改App-xaml-cs"><span class="nav-number">3.2.</span> <span class="nav-text">(2) 修改App.xaml.cs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）在MainPage-xaml-cs的构造函数上添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">(3）在MainPage.xaml.cs的构造函数上添加代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FYI"><span class="nav-number">4.</span> <span class="nav-text">FYI</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中"><span class="nav-number">3.1.</span> <span class="nav-text">新建MainPage和NewPage两个页面，并且将上面的xaml代码复制到这两个页面的代码中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改App-xaml-cs"><span class="nav-number">3.2.</span> <span class="nav-text">修改App.xaml.cs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml-cs的构造函数上添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">在MainPage.xaml.cs的构造函数上添加代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FYI"><span class="nav-number">4.</span> <span class="nav-text">FYI</span></a></li></ol></div>
             
 
           </div>
@@ -703,7 +703,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.1k字</span>
+  <span class="post-count">博客全站共20.6k字</span>
 </div>
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -721,7 +721,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div> 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div> 
 -->
 
 
@@ -821,6 +821,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
