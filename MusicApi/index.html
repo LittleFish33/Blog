@@ -114,7 +114,7 @@
 
 
 
-  <meta name="keywords" content="UWP," />
+  <meta name="keywords" content="写着玩," />
 
 
 
@@ -125,25 +125,26 @@
 
 
 
-<meta name="description" content="功能简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限（可以参考下一篇">
-<meta name="keywords" content="UWP">
+<meta name="description" content="写在前面​    一开始现操期中课程设计想要做一个可以共享各大音乐平台的音乐播放器，而这些音乐平台都没有提供API接口（很正常ヾ(･ε･｀*) ），所以研究了一下酷狗音乐、QQ音乐、网易云音乐的网页版，通过网页版来获取数据；然而最后因为时间的关系课程设计只使用了网易云音乐，emm。。。期中课程设计是团队合作完成的，项目链接，如果之后有空的话也会写篇博客简要介绍一下我们的期中课程设计(～￣▽￣)～">
+<meta name="keywords" content="写着玩">
 <meta property="og:type" content="article">
-<meta property="og:title" content="现代操作系统应用开发：UWP——文件管理（一）：KnownFolder">
-<meta property="og:url" content="http://littlefish33.cn/uwp/KnownFolder/index.html">
+<meta property="og:title" content="酷狗音乐、QQ音乐、网易云音乐API">
+<meta property="og:url" content="http://littlefish33.cn/MusicApi/index.html">
 <meta property="og:site_name" content="LittleFish&#39;s Blog">
-<meta property="og:description" content="功能简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限（可以参考下一篇">
+<meta property="og:description" content="写在前面​    一开始现操期中课程设计想要做一个可以共享各大音乐平台的音乐播放器，而这些音乐平台都没有提供API接口（很正常ヾ(･ε･｀*) ），所以研究了一下酷狗音乐、QQ音乐、网易云音乐的网页版，通过网页版来获取数据；然而最后因为时间的关系课程设计只使用了网易云音乐，emm。。。期中课程设计是团队合作完成的，项目链接，如果之后有空的话也会写篇博客简要介绍一下我们的期中课程设计(～￣▽￣)～">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/KnownFolder.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/PictureLibrary.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/KnownFolderSample.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/saveImage.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/EnableAcess.png">
-<meta property="og:image" content="http://littlefish33.cn/image/uwp/x64.png">
-<meta property="og:updated_time" content="2018-07-26T03:30:50.047Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/003.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/002.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/004.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/005.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/emoij/002.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/006.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/007.png">
+<meta property="og:updated_time" content="2018-07-28T14:03:39.785Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="现代操作系统应用开发：UWP——文件管理（一）：KnownFolder">
-<meta name="twitter:description" content="功能简介我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法： 第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：  第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限（可以参考下一篇">
-<meta name="twitter:image" content="http://littlefish33.cn/image/uwp/KnownFolder.png">
+<meta name="twitter:title" content="酷狗音乐、QQ音乐、网易云音乐API">
+<meta name="twitter:description" content="写在前面​    一开始现操期中课程设计想要做一个可以共享各大音乐平台的音乐播放器，而这些音乐平台都没有提供API接口（很正常ヾ(･ε･｀*) ），所以研究了一下酷狗音乐、QQ音乐、网易云音乐的网页版，通过网页版来获取数据；然而最后因为时间的关系课程设计只使用了网易云音乐，emm。。。期中课程设计是团队合作完成的，项目链接，如果之后有空的话也会写篇博客简要介绍一下我们的期中课程设计(～￣▽￣)～">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/003.png">
 
 
 
@@ -173,13 +174,13 @@
 
 
 
-  <link rel="canonical" href="http://littlefish33.cn/uwp/KnownFolder/"/>
+  <link rel="canonical" href="http://littlefish33.cn/MusicApi/"/>
 
 
 
 
 
-  <title>现代操作系统应用开发：UWP——文件管理（一）：KnownFolder | LittleFish's Blog</title>
+  <title>酷狗音乐、QQ音乐、网易云音乐API | LittleFish's Blog</title>
   
 
 
@@ -342,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/uwp/KnownFolder/">
+    <link itemprop="mainEntityOfPage" href="http://littlefish33.cn/MusicApi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LittleFish">
@@ -359,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">现代操作系统应用开发：UWP——文件管理（一）：KnownFolder</h1>
+          <h1 class="post-title" itemprop="name headline">酷狗音乐、QQ音乐、网易云音乐API</h1>
         
 
         <div class="post-meta">
@@ -371,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T23:10:00+08:00">
-                2018-04-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T21:53:00+08:00">
+                2018-07-28
               </time>
             
 
@@ -381,39 +382,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learnNote/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learnNote/MOSAD/" itemprop="url" rel="index">
-                    <span itemprop="name">现代操作系统应用开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -442,35 +410,141 @@
       
 
       
-        <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><p>我们的UWP程序想要读写本地的文件的时候，往往会遇到权限问题，这里存在着两个解决方法：</p>
-<p>第一，电脑上的KnownFolder允许UWP程序直接访问，这篇博客将接受借助KnownFolder读取和保存图片；这里的KnowFolder指的是下面图片中的文件夹：</p>
-<p><img src="/image/uwp/KnownFolder.png" alt=""></p>
-<p>第二，UWP程序启动时生成的local，temp，roaming（漫游）文件夹，程序对这三个文件夹也具有直接访问权限（可以参考下一篇博客<a href="http://littlefish33.cn/uwp/FileManagement">UWP——文件管理（二）</a>）;</p>
-<p>博客的示例程序将使用第一种方法，MainPage里有一个Image控件和一个Button控件，当启动程序的时候，Image控件将会进入KnownFolder中的图片文件夹，选中其中的图片（如示例图的detective978.jpg）初始化Image；点击按钮，会将Image的图片保存在KnownFolder的视频文件夹</p>
-<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><ul>
-<li>图片文件夹的内容</li>
-</ul>
-<p><img src="/image/uwp/PictureLibrary.png" alt=""></p>
-<ul>
-<li>启动程序后Image控件读取图片文件夹的内容</li>
-</ul>
-<p><img src="/image/uwp/KnownFolderSample.png" alt=""></p>
-<ul>
-<li>点击按钮后Image的图片保存到视频文件夹中</li>
-</ul>
-<p><img src="/image/uwp/saveImage.png" alt=""></p>
-<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="设置Package-appxmanifest文件"><a href="#设置Package-appxmanifest文件" class="headerlink" title="设置Package.appxmanifest文件"></a>设置Package.appxmanifest文件</h2><p>在解决方案资源管理器中找到Package.appxmanifest文件，点击打开，选择其中的功能，这里可以对UWP应用的各种功能提供权限，我们在图片库和视频库上打勾</p>
-<p><img src="/image/uwp/EnableAcess.png" alt=""></p>
-<h2 id="在MainPage-xaml添加控件"><a href="#在MainPage-xaml添加控件" class="headerlink" title="在MainPage.xaml添加控件"></a>在MainPage.xaml添加控件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MainPage.xaml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">Background</span>=<span class="string">"&#123;ThemeResource ApplicationPageBackgroundThemeBrush&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StackPanel</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Image</span> <span class="attr">x:Name</span>=<span class="string">"MyImage"</span> <span class="attr">Width</span>=<span class="string">"400"</span> <span class="attr">Height</span>=<span class="string">"600"</span>&gt;</span><span class="tag">&lt;/<span class="name">Image</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Save The Image"</span> <span class="attr">Click</span>=<span class="string">"Button_Click"</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="在MainPage-xaml-cs的构造函数上添加代码"><a href="#在MainPage-xaml-cs的构造函数上添加代码" class="headerlink" title="在MainPage.xaml.cs的构造函数上添加代码"></a>在MainPage.xaml.cs的构造函数上添加代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MainPage.xaml.cs</span></span><br><span class="line"><span class="keyword">namespace</span> KnownFolderSample</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> sealed partial <span class="class"><span class="keyword">class</span> <span class="title">MainPage</span> :</span> Page</span><br><span class="line">    &#123;</span><br><span class="line">    	<span class="comment">//用于保存图片</span></span><br><span class="line">        StorageFile file;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">            SetImageSource();</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//读取图片库里的图片并赋值给Image</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> async <span class="keyword">void</span> <span class="title">SetImageSource</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            StorageFolder storageFolder = await KnownFolders.GetFolderForUserAsync(null, KnownFolderId.PicturesLibrary);</span><br><span class="line">            file = await storageFolder.GetFileAsync(<span class="string">"detective978.jpg"</span>);</span><br><span class="line">            <span class="comment">//将图片赋给右侧的Image</span></span><br><span class="line">            <span class="keyword">if</span> (file != null)</span><br><span class="line">            &#123;</span><br><span class="line">                BitmapImage bitmap = <span class="keyword">new</span> BitmapImage();</span><br><span class="line">                <span class="keyword">using</span> (var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))</span><br><span class="line">                &#123;</span><br><span class="line">                    bitmap.SetSource(stream);</span><br><span class="line">                &#125;</span><br><span class="line">                MyImage.Source = bitmap;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//点击按钮将图片保存在视频库里</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> async <span class="keyword">void</span> <span class="title">Button_Click</span><span class="params">(object sender, RoutedEventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            StorageFolder storageFolder = await KnownFolders.GetFolderForUserAsync(null, KnownFolderId.VideosLibrary);</span><br><span class="line">            await file.CopyAsync(storageFolder, <span class="string">"KnownFolder.jpg"</span>, NameCollisionOption.ReplaceExisting);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>整个项目其实是相当简单的，需要注意的地方有两个：</p>
-<ul>
-<li>在开始的时候在Package.appxmanifest中提供权限</li>
-<li>使用KnownFolders.GetFolderForUserAsync获得文件夹</li>
-</ul>
-<h1 id="FYI"><a href="#FYI" class="headerlink" title="FYI"></a>FYI</h1><p>项目下载：<a href="https://github.com/LittleFish33/UWPSample/tree/master/Blog/KnownFolderSample" target="_blank" rel="noopener">KnownFolderSample</a></p>
-<p>项目下载之后记住把Debug模式从ARM换成X86或X64（根据你自己的机型选择），之前一开始学习的时候不知道这一点，从网上下载下来的项目都运行不了，纠结的一逼(╥╯^╰╥)</p>
-<p><img src="/image/uwp/x64.png" alt=""></p>
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>​    一开始现操期中课程设计想要做一个可以共享各大音乐平台的音乐播放器，而这些音乐平台都没有提供API接口（很正常ヾ(･ε･｀*) ），所以研究了一下酷狗音乐、QQ音乐、网易云音乐的网页版，通过网页版来获取数据；然而最后因为时间的关系课程设计只使用了网易云音乐，emm。。。期中课程设计是团队合作完成的，<a href="https://github.com/LittleFish33/MyMusic" target="_blank" rel="noopener">项目链接</a>，如果之后有空的话也会写篇博客简要介绍一下我们的期中课程设计(～￣▽￣)～ </p>
+<p>​    说回正题，这篇博客首先会分享一下那时候收集到的API，这里有的是大神已经找好的，有一些是自己解析网页版资源得到的，仅供学习研究（正经脸）；然后会介绍一下是怎么解析网页版的数据的，不过涉及到解密的部分我就不会啦，逃。。。顺带一提，这个还是挺有用的，利用这个方法制作了一个自动签到的脚本，虽然最后只随机分到了四个钥匙扣（为毛分不到抱枕嘞，(ノДＴ)）继续逃。。。</p>
+<h1 id="酷狗音乐"><a href="#酷狗音乐" class="headerlink" title="酷狗音乐"></a>酷狗音乐</h1><h2 id="歌曲搜索"><a href="#歌曲搜索" class="headerlink" title="歌曲搜索"></a>歌曲搜索</h2><p>方法一：</p>
+<blockquote>
+<p>url：<a href="http://songsearch.kugou.com/song_search_v2" target="_blank" rel="noopener">http://songsearch.kugou.com/song_search_v2</a></p>
+<p>必选参数：keyword（关键字）<br>可选参数：page（第几页），pagesize（一页的搜索结果数目）</p>
+<p>eg：</p>
+<p><a href="http://songsearch.kugou.com/song_search_v2?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30" target="_blank" rel="noopener">http://songsearch.kugou.com/song_search_v2?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30</a></p>
+</blockquote>
+<p>方法二：</p>
+<blockquote>
+<p>url: <a href="http://mobilecdn.kugou.com/api/v3/search/song" target="_blank" rel="noopener">http://mobilecdn.kugou.com/api/v3/search/song</a></p>
+<p>必选参数：keyword（关键字）<br>可选参数：page（第几页），pagesize（一页的搜索结果数目）</p>
+<p>eg：</p>
+<p><a href="http://mobilecdn.kugou.com/api/v3/search/song?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=10" target="_blank" rel="noopener">http://mobilecdn.kugou.com/api/v3/search/song?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=10</a></p>
+</blockquote>
+<h2 id="获取音乐下载地址"><a href="#获取音乐下载地址" class="headerlink" title="获取音乐下载地址"></a>获取音乐下载地址</h2><p>首先，我们需要上面方法二搜索结果的hash：</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/003.png" alt=""></p>
+<p>获取MV总共有两种方法</p>
+<p>方法一：</p>
+<blockquote>
+<p>url：<a href="http://trackercdn.kugou.com/i/v2/?cmd=25" target="_blank" rel="noopener">http://trackercdn.kugou.com/i/v2/?cmd=25</a></p>
+<p>必选参数：</p>
+<p>hash：上面的hash全小写</p>
+<p>key：对上面的hash加盐值(SALT)kgcloudv2，然后进行md5加密</p>
+<p>behavior：download</p>
+<p>eg：</p>
+<p><a href="http://trackercdn.kugou.com/i/v2/?cmd=25&amp;key=49f701e8b36115d84c13d5d7decf2603&amp;hash=d9887aecacd56ddc63786ea0028015b4&amp;behavior=download" target="_blank" rel="noopener">http://trackercdn.kugou.com/i/v2/?cmd=25&amp;key=49f701e8b36115d84c13d5d7decf2603&amp;hash=d9887aecacd56ddc63786ea0028015b4&amp;behavior=download</a></p>
+</blockquote>
+<p>方法二：</p>
+<blockquote>
+<p>url：<a href="http://trackercdn.kugou.com/i/v2/?cmd=26" target="_blank" rel="noopener">http://trackercdn.kugou.com/i/v2/?cmd=26</a></p>
+<p>必选参数：</p>
+<p>mid：0（可以选其他值）<br>userid：0（可以选其他值）<br>appid：1005（必须为1005）</p>
+<p>behavior：play</p>
+<p>version：0</p>
+<p>vipType：0</p>
+<p>token：0</p>
+<p>hash：上面的hash全小写</p>
+<p>key：对上面的hash加盐值(SALT)kgcloudv2100500（kgcloudv2后面的值就是 appid+mid+userid），然后进行md5加密</p>
+<p>eg：</p>
+<p><a href="http://trackercdn.kugou.com/i/v2/?cmd=26&amp;key=6d40e212383d3c45633f8e8f1e332d76&amp;hash=d9887aecacd56ddc63786ea0028015b4&amp;behavior=play&amp;mid=0&amp;appid=1005&amp;userid=0&amp;version=0&amp;vipType=0&amp;token=0" target="_blank" rel="noopener">http://trackercdn.kugou.com/i/v2/?cmd=26&amp;key=6d40e212383d3c45633f8e8f1e332d76&amp;hash=d9887aecacd56ddc63786ea0028015b4&amp;behavior=play&amp;mid=0&amp;appid=1005&amp;userid=0&amp;version=0&amp;vipType=0&amp;token=0</a></p>
+</blockquote>
+<h2 id="MV搜索"><a href="#MV搜索" class="headerlink" title="MV搜索"></a>MV搜索</h2><p>url : <a href="http://mvsearch.kugou.com/mv_search" target="_blank" rel="noopener">http://mvsearch.kugou.com/mv_search</a></p>
+<p>必选参数：keyword（关键字）</p>
+<p>可选参数：page（第几页），pagesize（一页的搜索结果数目）</p>
+<p>eg：</p>
+<p><a href="http://mvsearch.kugou.com/mv_search?&amp;keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;pagesize=30&amp;page=1" target="_blank" rel="noopener">http://mvsearch.kugou.com/mv_search?&amp;keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;pagesize=30&amp;page=1</a></p>
+<h2 id="获取MV下载地址"><a href="#获取MV下载地址" class="headerlink" title="获取MV下载地址"></a>获取MV下载地址</h2><p>首先，我们需要上面搜索MV返回结果的<code>MvHash</code></p>
+<p>如图：</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/002.png" alt=""></p>
+<p>获取MV总共有四种方法：</p>
+<p>方法一：</p>
+<blockquote>
+<p>url：<a href="http://trackermv.kugou.com/interface/index/cmd=4" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=4</a></p>
+<p>必选参数：</p>
+<p>hash：上面的MvHash全大写</p>
+<p>key：对上面的MvHash加盐值(SALT)kgcloud，然后进行md5加密</p>
+<p>ext：mp4</p>
+<p>eg：</p>
+<p><a href="http://trackermv.kugou.com/interface/index/cmd=4&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=83dfaed92e992719954c37a97ccfce94&amp;ext=mp4" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=4&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=83dfaed92e992719954c37a97ccfce94&amp;ext=mp4</a></p>
+</blockquote>
+<p>方法二：</p>
+<blockquote>
+<p>url：<a href="http://trackermv.kugou.com/interface/index/cmd=100" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=100</a></p>
+<p>必选参数：</p>
+<p>hash：上面的MvHash全大写</p>
+<p>key：对上面的MvHash加盐值(SALT)kugoumvcloud，然后进行md5加密</p>
+<p>ext：mp4</p>
+<p>eg：</p>
+<p><a href="http://trackermv.kugou.com/interface/index/cmd=100&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=fe3dd52c9760c4d7cd25f28666556bd0&amp;ext=mp4" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=100&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=fe3dd52c9760c4d7cd25f28666556bd0&amp;ext=mp4</a> </p>
+<p>这个可以返回所有的mv链接</p>
+</blockquote>
+<p>方法三：</p>
+<blockquote>
+<p>url：<a href="http://trackermv.kugou.com/interface/index/cmd=103" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=103</a></p>
+<p>必选参数：</p>
+<p>hash：上面的MvHash全大写</p>
+<p>key：对上面的MvHash加盐值(SALT)kugoumvcloud，然后进行md5加密</p>
+<p>ext：mp4</p>
+<p>eg：</p>
+<p><a href="http://trackermv.kugou.com/interface/index/cmd=103&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=fe3dd52c9760c4d7cd25f28666556bd0&amp;ext=mp4" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=103&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;key=fe3dd52c9760c4d7cd25f28666556bd0&amp;ext=mp4</a></p>
+</blockquote>
+<p>方法四：</p>
+<blockquote>
+<p>url：<a href="http://trackermv.kugou.com/interface/index/cmd=104" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=104</a></p>
+<p>必选参数：</p>
+<p>hash：上面的MvHash全大写</p>
+<p>ext：mp4</p>
+<p>eg：</p>
+<p><a href="http://trackermv.kugou.com/interface/index/cmd=104&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;ext=mp4" target="_blank" rel="noopener">http://trackermv.kugou.com/interface/index/cmd=104&amp;hash=4CFA5311D22BA49BAFCEA9B9E992FBF7&amp;ext=mp4</a></p>
+</blockquote>
+<h1 id="QQ音乐"><a href="#QQ音乐" class="headerlink" title="QQ音乐"></a>QQ音乐</h1><h2 id="获取最新音乐"><a href="#获取最新音乐" class="headerlink" title="获取最新音乐"></a>获取最新音乐</h2><p>url：</p>
+<p><a href="https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?uin=0&amp;notice=0&amp;platform=h5&amp;needNewCode=1&amp;tpl=3&amp;page=detail&amp;type=top&amp;topid=27" target="_blank" rel="noopener">https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?uin=0&amp;notice=0&amp;platform=h5&amp;needNewCode=1&amp;tpl=3&amp;page=detail&amp;type=top&amp;topid=27</a></p>
+<h2 id="获取推荐歌曲"><a href="#获取推荐歌曲" class="headerlink" title="获取推荐歌曲"></a>获取推荐歌曲</h2><p>url：</p>
+<p><a href="https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?notice=0&amp;platform=h5&amp;tpl=3&amp;page=detail&amp;type=top&amp;topid=36" target="_blank" rel="noopener">https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?notice=0&amp;platform=h5&amp;tpl=3&amp;page=detail&amp;type=top&amp;topid=36</a></p>
+<h2 id="歌曲搜索-1"><a href="#歌曲搜索-1" class="headerlink" title="歌曲搜索"></a>歌曲搜索</h2><p>url：</p>
+<p><a href="https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&amp;cr=1&amp;flag_qc=0" target="_blank" rel="noopener">https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&amp;cr=1&amp;flag_qc=0</a></p>
+<p>必选参数：w（关键词）</p>
+<p>可选参数：p（相当于上面的page），（相当于上面的pagesize）</p>
+<p>eg：</p>
+<p><a href="https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&amp;cr=1&amp;flag_qc=0&amp;p=1&amp;n=20&amp;w=%E5%86%8D%E9%A3%9E%E8%A1%8C" target="_blank" rel="noopener">https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&amp;cr=1&amp;flag_qc=0&amp;p=1&amp;n=20&amp;w=%E5%86%8D%E9%A3%9E%E8%A1%8C</a></p>
+<h2 id="获取歌曲播放链接"><a href="#获取歌曲播放链接" class="headerlink" title="获取歌曲播放链接"></a>获取歌曲播放链接</h2><p>首先，我们需要上面API提供的songmid</p>
+<p>如图：</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/004.png" alt=""></p>
+<p>url：<a href="http://ws.stream.qqmusic.qq.com/songmid.m4a" target="_blank" rel="noopener">http://ws.stream.qqmusic.qq.com/songmid.m4a</a></p>
+<p>(这里的songmid替换为上面的songmid)</p>
+<p>必选参数：</p>
+<p>fromtag：0</p>
+<p>guid：一个随机的9位数</p>
+<p>eg：</p>
+<p><a href="http://ws.stream.qqmusic.qq.com/C100000Fc2iQ4eBEei.m4a?fromtag=0&amp;guid=126548448" target="_blank" rel="noopener">http://ws.stream.qqmusic.qq.com/C100000Fc2iQ4eBEei.m4a?fromtag=0&amp;guid=126548448</a></p>
+<h2 id="获取歌词"><a href="#获取歌词" class="headerlink" title="获取歌词"></a>获取歌词</h2><p>获取歌词就比较麻烦了，emm，</p>
+<p>首先，我们需要先获取一个vkey：</p>
+<p>例如：</p>
+<p><a href="https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?format=json205361747&amp;platform=yqq&amp;cid=205361747&amp;songmid=000Fc2iQ4eBEei&amp;filename=C400000Fc2iQ4eBEei.m4a&amp;guid=1684916857" target="_blank" rel="noopener">https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?format=json205361747&amp;platform=yqq&amp;cid=205361747&amp;songmid=000Fc2iQ4eBEei&amp;filename=C400000Fc2iQ4eBEei.m4a&amp;guid=1684916857</a></p>
+<p>上面链接中的songmid需要替换为对应的songmid，filename需要替换为对应的C400 + songmid + .m4a</p>
+<p>上面的链接会返回一个json字符串文件，其中就有我们要的vkey：</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/005.png" alt=""></p>
+<p>因为QQ音乐还要验证我们的请求头信息，所以简单地在浏览器输入一个url是不能成功的，所以，我们需要使用代码伪装我们的请求头，这里使用python（py大法好）获取歌词信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lrc_save</span><span class="params">(self, path=os.path.join<span class="params">(os.path.abspath<span class="params">(<span class="string">'./'</span>)</span>, <span class="string">'song'</span>)</span>)</span>:</span></span><br><span class="line">    <span class="string">''' 保存歌词 '''</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">"Referer"</span>: <span class="string">"https://y.qq.com/portal/1player.html"</span>,</span><br><span class="line">        <span class="string">"Cookie"</span>: <span class="string">"skey=@LVJPZmJUX;p"</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    url = <span class="string">'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg?g_tk=753738303&amp;songmid='</span> + self.song_mid;</span><br><span class="line">    lrc_data = requests.get(url, headers=headers)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lrc_data.status_code != <span class="number">200</span>:</span><br><span class="line">        print(<span class="string">'歌词不存在或网络错误'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    lrc_dict = json.loads(lrc_data.text[<span class="number">18</span>:<span class="number">-1</span>])</span><br><span class="line">    lrc_data = base64.b64decode(lrc_dict[<span class="string">'lyric'</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> open(os.path.join(path, self.save_title + <span class="string">'.lrc'</span>), <span class="string">'w'</span>) <span class="keyword">as</span> fr:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            fr.write(lrc_data)</span><br><span class="line">            <span class="keyword">except</span> TypeError:</span><br><span class="line">                fr.write(bytes.decode(lrc_data))</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 若有翻译歌词</span></span><br><span class="line">                <span class="keyword">if</span> lrc_dict.get(<span class="string">'trans'</span>):</span><br><span class="line">                    lrc_data = base64.b64decode(lrc_dict[<span class="string">'trans'</span>])</span><br><span class="line">                    <span class="keyword">with</span> open(os.path.join(path, self.save_title + <span class="string">'-trans.lrc'</span>), <span class="string">'w'</span>) <span class="keyword">as</span> fr:</span><br><span class="line">                        <span class="keyword">try</span>:</span><br><span class="line">                            fr.write(lrc_data)</span><br><span class="line">                            <span class="keyword">except</span> TypeError:</span><br><span class="line">                                fr.write(bytes.decode(lrc_data))</span><br><span class="line">                                print(<span class="string">'歌词下载完成'</span>)</span><br><span class="line">                                print(os.path.join(path, self.save_title + <span class="string">'.lrc'</span>))</span><br><span class="line">                                <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h1><p>网易云音乐的API算是最全的了，感谢@<a href="https://github.com/Binaryify" target="_blank" rel="noopener">Binaryify</a>大神提供的API：<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="noopener">NeteaseCloudMusicApi</a></p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/emoij/002.gif" alt=""></p>
+<h1 id="解析网页数据初尝试"><a href="#解析网页数据初尝试" class="headerlink" title="解析网页数据初尝试"></a>解析网页数据初尝试</h1><p>以酷狗音乐为例（因为酷狗音乐的搜索不涉及加密，最简单(～￣▽￣)～ ）；打开浏览器开发者工具（DevTools），之后打开Network选项卡，在这里我们可以看到接收到的所有数据；</p>
+<p>进行搜索，我们就可以看到Network选项卡中同步更新着接收的数据。</p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/006.png" alt=""></p>
+<p>从接收的数据项中我们可以找到含有搜索结果的数据项，此时我们可以查看<code>Header</code></p>
+<p><img src="https://raw.githubusercontent.com/LittleFish33/ImageHosting/master/BlogImage/learnForFun/007.png" alt=""></p>
+<p>这里包含了请求的信息，各参数的意思看一下就知道了，可以看到<strong>Request URL</strong>为：</p>
+<p><a href="http://songsearch.kugou.com/song_search_v2?callback=jQuery112403078939622012824_1532785148908&amp;keyword=%E5%86%8D%E19%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30&amp;userid=-1&amp;clientver=&amp;platform=WebFilter&amp;tag=em&amp;filter=2&amp;iscorrection=1&amp;privilege_filter=0&amp;_=1532785148910" target="_blank" rel="noopener">http://songsearch.kugou.com/song_search_v2?callback=jQuery112403078939622012824_1532785148908&amp;keyword=%E5%86%8D%E19%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30&amp;userid=-1&amp;clientver=&amp;platform=WebFilter&amp;tag=em&amp;filter=2&amp;iscorrection=1&amp;privilege_filter=0&amp;_=1532785148910</a></p>
+<p>删除一些可选项，最后的结果就是：</p>
+<p><a href="http://songsearch.kugou.com/song_search_v2?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30" target="_blank" rel="noopener">http://songsearch.kugou.com/song_search_v2?keyword=%E5%86%8D%E9%A3%9E%E8%A1%8C&amp;page=1&amp;pagesize=30</a></p>
+<p>这和我们上面<a href="#歌曲搜索">酷狗音乐搜索歌曲的API一致</a></p>
+<p>有一些网站还有对请求头进行验证，这时候就需要伪造请求头了，如上面<a href="#获取歌词">QQ音乐的歌词获取</a></p>
+<p>而且大部分网站都是对请求进行加密的，这就需要查看代码（或解密，这个真的不会）了，在Network选项卡里包含了一些代码文件，有时候需要看代码才能知道怎么弄了。</p>
 
       
     </div>
@@ -489,7 +563,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/UWP/" rel="tag"># UWP</a>
+            <a href="/tags/LearnForFun/" rel="tag"># 写着玩</a>
           
         </div>
       
@@ -502,8 +576,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/uwp/onSuspend/" rel="next" title="现代操作系统应用开发：UWP——onSuspend：挂起并关闭">
-                <i class="fa fa-chevron-left"></i> 现代操作系统应用开发：UWP——onSuspend：挂起并关闭
+              <a href="/DataBase/SimplePage/" rel="next" title="数据库：存放变长记录的Page类代码实现">
+                <i class="fa fa-chevron-left"></i> 数据库：存放变长记录的Page类代码实现
               </a>
             
           </div>
@@ -511,10 +585,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/uwp/FileManagement/" rel="prev" title="现代操作系统应用开发：UWP——文件管理（二）：FileManagement">
-                现代操作系统应用开发：UWP——文件管理（二）：FileManagement <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">2.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Package-appxmanifest文件"><span class="nav-number">3.1.</span> <span class="nav-text">设置Package.appxmanifest文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml添加控件"><span class="nav-number">3.2.</span> <span class="nav-text">在MainPage.xaml添加控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在MainPage-xaml-cs的构造函数上添加代码"><span class="nav-number">3.3.</span> <span class="nav-text">在MainPage.xaml.cs的构造函数上添加代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FYI"><span class="nav-number">5.</span> <span class="nav-text">FYI</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#酷狗音乐"><span class="nav-number">2.</span> <span class="nav-text">酷狗音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲搜索"><span class="nav-number">2.1.</span> <span class="nav-text">歌曲搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取音乐下载地址"><span class="nav-number">2.2.</span> <span class="nav-text">获取音乐下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MV搜索"><span class="nav-number">2.3.</span> <span class="nav-text">MV搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取MV下载地址"><span class="nav-number">2.4.</span> <span class="nav-text">获取MV下载地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QQ音乐"><span class="nav-number">3.</span> <span class="nav-text">QQ音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取最新音乐"><span class="nav-number">3.1.</span> <span class="nav-text">获取最新音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取推荐歌曲"><span class="nav-number">3.2.</span> <span class="nav-text">获取推荐歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲搜索-1"><span class="nav-number">3.3.</span> <span class="nav-text">歌曲搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取歌曲播放链接"><span class="nav-number">3.4.</span> <span class="nav-text">获取歌曲播放链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取歌词"><span class="nav-number">3.5.</span> <span class="nav-text">获取歌词</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网易云音乐"><span class="nav-number">4.</span> <span class="nav-text">网易云音乐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析网页数据初尝试"><span class="nav-number">5.</span> <span class="nav-text">解析网页数据初尝试</span></a></li></ol></div>
             
 
           </div>
